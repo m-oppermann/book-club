@@ -1,7 +1,19 @@
-import React from "react"
+import React, { useState, useEffect } from "react"
 
 const App = () => {
-  return <h1>Hello world!</h1>
+  const [books, setBooks] = useState([])
+
+  useEffect(() => {
+    const fetchData = async () => {
+      const response = await fetch("https://book-club-json.herokuapp.com/books")
+      const books = await response.json()
+      setBooks(books)
+    }
+
+    fetchData()
+  }, [])
+
+  return <div>Hello world!</div>
 }
 
 export default App
