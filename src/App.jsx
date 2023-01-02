@@ -18,10 +18,17 @@ const App = () => {
 
   useEffect(() => {
     const fetchData = async () => {
-      const response = await fetch("https://book-club-json.herokuapp.com/books")
-      const books = await response.json()
-      setBooks(books)
+      const response = await fetch("/books.json")
+      const data = await response.json()
+      setBooks(data)
     }
+
+    // Works too
+    /* const fetchData = () => {
+      fetch("/books.json")
+        .then(response => response.json())
+        .then(books => setBooks(books))
+    } */
 
     fetchData()
   }, [])
