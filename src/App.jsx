@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react"
 import { createGlobalStyle } from "styled-components"
 import BooksContainer from "./components/BooksContainer"
+import Header from "./components/Header"
 
 const GlobalStyle = createGlobalStyle`
   body {
@@ -28,6 +29,7 @@ const App = () => {
   return (
     <>
       <GlobalStyle />
+      <Header />
       <BooksContainer books={books}></BooksContainer>
     </>
   )
