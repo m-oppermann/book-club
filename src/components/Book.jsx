@@ -8,23 +8,28 @@ const Container = styled.figure`
 
 const Cover = styled.img`
   /* filter: grayscale(100%); */
-  border: 2px solid #000;
+  /* border: 2px solid #000; */
+  border-radius: 2px;
   object-fit: cover;
   aspect-ratio: 2 / 3;
   width: 100%;
-  margin-bottom: 16px;
 `
 
 const Description = styled.figcaption``
 
 const Title = styled.h3`
+  font-family: "Work Sans", sans-serif;
+  font-weight: 600;
   font-size: 24px;
   line-height: 1.3;
-  margin-bottom: 12px;
+  margin: 24px 0 8px;
 `
 
 const Author = styled.h4`
+  font-family: "Libre Baskerville", serif;
+  font-style: italic;
   font-size: 16px;
+  font-weight: 400;
   line-height: 1.5;
   margin: 0;
 `
