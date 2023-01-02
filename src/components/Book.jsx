@@ -36,7 +36,7 @@ const Author = styled.h4`
 const BookComponent = ({ book }) => (
   <Container>
     <Cover
-      src={book.image}
+      src={book.cover}
       alt={`Book cover for ${book.title} by ${book.author}`}
     />
     <Description>
