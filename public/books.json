@@ -1,12 +1,12 @@
 [
   {
     "id": 1,
-    "title": "The Lean Startup",
-    "subtitle": "How Today's Entrepreneurs Use Continuous Innovation to Create Radically Successful Businesses",
-    "description": "Most startups fail. But many of those failures are preventable. The Lean Startup is a new approach being adopted across the globe, changing the way companies are built and new products are launched.",
-    "author": "Eric Ries",
-    "published": "September 13th 2011",
-    "cover": "https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/books/1629999184l/10127019._SY475_.jpg"
+    "title": "Trillion Dollar Coach",
+    "subtitle": "The Leadership Playbook of Silicon Valley's Bill Campbell",
+    "description": "The team behind How Google Works returns with management lessons from legendary coach and business executive, Bill Campbell, whose mentoring of some of our most successful modern entrepreneurs has helped create well over a trillion dollars in market value.",
+    "author": "Eric Schmidt",
+    "published": "April 16th 2019",
+    "cover": "https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/books/1554279400l/42118073.jpg"
   },
   {
     "id": 2,
@@ -64,6 +64,15 @@
   },
   {
     "id": 8,
+    "title": "What You Do Is Who You Are",
+    "subtitle": "How to Create Your Business Culture",
+    "description": "Ben Horowitz, a leading venture capitalist, modern management expert, and New York Times bestselling author, combines lessons both from history and from modern organizational practice with practical and often surprising advice to help executives build cultures that can weather both good and bad times.",
+    "author": "Ben Horowitz",
+    "published": "October 29th 2019",
+    "cover": "https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/books/1571347435l/44063692.jpg"
+  },
+  {
+    "id": 9,
     "title": "Range",
     "subtitle": "Why Generalists Triumph in a Specialized World",
     "description": "David Epstein examined the world's most successful athletes, artists, musicians, inventors, forecasters and scientists. He discovered that in most fields--especially those that are complex and unpredictable--generalists, not specialists, are primed to excel.",
@@ -72,22 +81,13 @@
     "cover": "https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/books/1550048292l/41795733.jpg"
   },
   {
-    "id": 9,
-    "title": "You're Not Listening",
-    "subtitle": "What You're Missing and Why It Matters",
-    "description": "New York Times contributor Kate Murphy asked people on five continents this question, and the response was typically a long, awkward pause. People struggled to come up with someone, anyone, who truly listened to them without glazing over, glancing down at a phone, or jumping in to offer an opinion.",
-    "author": "Kate Murphy",
-    "published": "January 7th 2020",
-    "cover": "https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/books/1650124222l/45892276._SY475_.jpg"
-  },
-  {
     "id": 10,
-    "title": "Talking to Strangers",
-    "subtitle": "What We Should Know About the People We Don’t Know",
-    "description": "Malcolm Gladwell, host of the podcast Revisionist History and author of the #1 New York Times bestseller Outliers, offers a powerful examination of our interactions with strangers -- and why they often go wrong.",
-    "author": "Malcom Gladwell",
-    "published": "September 10th 2019",
-    "cover": "https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/books/1549393502l/43848929._SX318_.jpg"
+    "title": "The Lean Startup",
+    "subtitle": "How Today's Entrepreneurs Use Continuous Innovation to Create Radically Successful Businesses",
+    "description": "Most startups fail. But many of those failures are preventable. The Lean Startup is a new approach being adopted across the globe, changing the way companies are built and new products are launched.",
+    "author": "Eric Ries",
+    "published": "September 13th 2011",
+    "cover": "https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/books/1629999184l/10127019._SY475_.jpg"
   },
   {
     "id": 11,
@@ -118,21 +118,21 @@
   },
   {
     "id": 14,
-    "title": "Think Again",
-    "subtitle": "The Power of Knowing What You Don't Know",
-    "description": "Think Again is a book about the benefit of doubt, and about how we can get better at embracing the unknown and the joy of being wrong. Evidence has shown that creative geniuses are not attached to one identity, but constantly willing to rethink their stances and that leaders who admit they don't know something and seek critical feedback lead more productive and innovative teams.",
-    "author": "Adam M. Grant",
-    "published": "February 2nd 2021",
-    "cover": "https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/books/1602574232l/55539565.jpg"
-  },
-  {
-    "id": 15,
     "title": "The Power of Writing It Down",
     "subtitle": "A Simple Habit to Unlock Your Brain and Reimagine Your Life",
     "description": "For anyone who's trying to make sense of their life, who wants to get unstuck from the patterns that hold them back, hear this incredible news: everything you need for the freedom you want is entirely within reach. This practice and pathway is free, it's readily available every day of your life, it takes just minutes of your time, and anyone can do it. ",
     "author": "Allison Fallon",
     "published": "January 12th 2021",
     "cover": "https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/books/1606940427l/52609381._SY475_.jpg"
+  },
+  {
+    "id": 15,
+    "title": "Think Again",
+    "subtitle": "The Power of Knowing What You Don't Know",
+    "description": "Think Again is a book about the benefit of doubt, and about how we can get better at embracing the unknown and the joy of being wrong. Evidence has shown that creative geniuses are not attached to one identity, but constantly willing to rethink their stances and that leaders who admit they don't know something and seek critical feedback lead more productive and innovative teams.",
+    "author": "Adam M. Grant",
+    "published": "February 2nd 2021",
+    "cover": "https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/books/1602574232l/55539565.jpg"
   },
   {
     "id": 16,
