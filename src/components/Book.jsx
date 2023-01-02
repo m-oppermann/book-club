@@ -18,7 +18,6 @@ const Cover = styled.img`
 const Description = styled.figcaption``
 
 const Title = styled.h3`
-  font-family: "Work Sans", sans-serif;
   font-weight: 600;
   font-size: 24px;
   line-height: 1.3;

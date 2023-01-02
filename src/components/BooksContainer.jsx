@@ -17,7 +17,6 @@ const Container = styled.div`
 `
 
 const H2 = styled.h2`
-  font-family: "Work Sans", sans-serif;
   font-weight: 600;
   font-size: 40px;
   margin-bottom: 16px;
