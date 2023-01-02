@@ -10,6 +10,7 @@ const GlobalStyle = createGlobalStyle`
     padding: 0;
     -webkit-font-smoothing: antialiased;
     text-rendering: optimizeLegibility;
+    background: #fff;
   }
 `
 

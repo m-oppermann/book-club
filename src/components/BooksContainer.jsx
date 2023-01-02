@@ -3,7 +3,6 @@ import styled from "styled-components"
 import Book from "./Book"
 
 const Container = styled.div`
-  background-color: #FFFDF9;
   padding: 64px;
   overflow: scroll;
 
