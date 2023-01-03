@@ -1,42 +1,6 @@
 [
   {
     "id": 1,
-    "title": "Trillion Dollar Coach",
-    "subtitle": "The Leadership Playbook of Silicon Valley's Bill Campbell",
-    "description": "The team behind How Google Works returns with management lessons from legendary coach and business executive, Bill Campbell, whose mentoring of some of our most successful modern entrepreneurs has helped create well over a trillion dollars in market value.",
-    "author": "Eric Schmidt",
-    "published": "April 16th 2019",
-    "cover": "https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/books/1554279400l/42118073.jpg"
-  },
-  {
-    "id": 2,
-    "title": "The Hard Thing About Hard Things",
-    "subtitle": "Building a Business When There Are No Easy Answers",
-    "description": "In The Hard Thing About Hard Things, Ben Horowitz, cofounder of Andreessen Horowitz and one of Silicon Valley's most respected and experienced entrepreneurs, draws on his own story of founding, running, selling, buying, managing, and investing in technology companies to offer essential advice and practical wisdom for navigating the toughest problems business schools don't cover.",
-    "author": "Ben Horowitz",
-    "published": "March 4th 2014",
-    "cover": "https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/books/1386609333l/18176747.jpg"
-  },
-  {
-    "id": 3,
-    "title": "Zero to One",
-    "subtitle": "Notes on Startups, or How to Build the Future",
-    "description": "If you want to build a better future, you must believe in secrets. The great secret of our time is that there are still uncharted frontiers to explore and new inventions to create. In Zero to One, legendary entrepreneur and investor Peter Thiel shows how we can find singular ways to create those new things.",
-    "author": "Peter Thiel",
-    "published": "September 16th 2014",
-    "cover": "https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/books/1630663027l/18050143.jpg"
-  },
-  {
-    "id": 4,
-    "title": "Atomic Habits",
-    "subtitle": "An Easy & Proven Way to Build Good Habits & Break Bad Ones",
-    "description": "No matter your goals, Atomic Habits offers a proven framework for improving—every day. James Clear, one of the world's leading experts on habit formation, reveals practical strategies that will teach you exactly how to form good habits, break bad ones, and master the tiny behaviors that lead to remarkable results.",
-    "author": "James Clear",
-    "published": "October 16th 2018",
-    "cover": "https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/books/1655988385l/40121378.jpg"
-  },
-  {
-    "id": 5,
     "title": "Stolen Focus",
     "subtitle": "Why You Can't Pay Attention- and How to Think Deeply Again",
     "description": "Our ability to pay attention is collapsing. From the New York Times bestselling author of Chasing the Scream and Lost Connections comes a groundbreaking examination of why this is happening--and how to get our attention back.",
@@ -45,7 +9,7 @@
     "cover": "https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/books/1626718328l/57933306.jpg"
   },
   {
-    "id": 6,
+    "id": 2,
     "title": "Chip War",
     "subtitle": "The Fight for the World's Most Critical Technology",
     "description": "An epic account of the decades-long battle to control what has emerged as the world’s most critical resource—microchip technology—with the United States and China increasingly in conflict.",
@@ -54,7 +18,7 @@
     "cover": "https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/books/1662566820l/60321447.jpg"
   },
   {
-    "id": 7,
+    "id": 3,
     "title": "Digital Minimalism",
     "subtitle": "Choosing a Focused Life in a Noisy World",
     "description": "Minimalism is the art of knowing how much is just enough. Digital minimalism applies this idea to our personal technology. It's the key to living a focused life in an increasingly noisy world.",
@@ -63,16 +27,16 @@
     "cover": "https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/books/1549433350l/40672036._SY475_.jpg"
   },
   {
-    "id": 8,
-    "title": "What You Do Is Who You Are",
-    "subtitle": "How to Create Your Business Culture",
-    "description": "Ben Horowitz, a leading venture capitalist, modern management expert, and New York Times bestselling author, combines lessons both from history and from modern organizational practice with practical and often surprising advice to help executives build cultures that can weather both good and bad times.",
-    "author": "Ben Horowitz",
-    "published": "October 29th 2019",
-    "cover": "https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/books/1571347435l/44063692.jpg"
+    "id": 4,
+    "title": "Trillion Dollar Coach",
+    "subtitle": "The Leadership Playbook of Silicon Valley's Bill Campbell",
+    "description": "The team behind How Google Works returns with management lessons from legendary coach and business executive, Bill Campbell, whose mentoring of some of our most successful modern entrepreneurs has helped create well over a trillion dollars in market value.",
+    "author": "Eric Schmidt",
+    "published": "April 16th 2019",
+    "cover": "https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/books/1554279400l/42118073.jpg"
   },
   {
-    "id": 9,
+    "id": 5,
     "title": "Range",
     "subtitle": "Why Generalists Triumph in a Specialized World",
     "description": "David Epstein examined the world's most successful athletes, artists, musicians, inventors, forecasters and scientists. He discovered that in most fields--especially those that are complex and unpredictable--generalists, not specialists, are primed to excel.",
@@ -81,16 +45,16 @@
     "cover": "https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/books/1550048292l/41795733.jpg"
   },
   {
-    "id": 10,
-    "title": "The Lean Startup",
-    "subtitle": "How Today's Entrepreneurs Use Continuous Innovation to Create Radically Successful Businesses",
-    "description": "Most startups fail. But many of those failures are preventable. The Lean Startup is a new approach being adopted across the globe, changing the way companies are built and new products are launched.",
-    "author": "Eric Ries",
-    "published": "September 13th 2011",
-    "cover": "https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/books/1629999184l/10127019._SY475_.jpg"
+    "id": 6,
+    "title": "Zero to One",
+    "subtitle": "Notes on Startups, or How to Build the Future",
+    "description": "If you want to build a better future, you must believe in secrets. The great secret of our time is that there are still uncharted frontiers to explore and new inventions to create. In Zero to One, legendary entrepreneur and investor Peter Thiel shows how we can find singular ways to create those new things.",
+    "author": "Peter Thiel",
+    "published": "September 16th 2014",
+    "cover": "https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/books/1630663027l/18050143.jpg"
   },
   {
-    "id": 11,
+    "id": 7,
     "title": "Good to Great",
     "subtitle": "Why Some Companies Make the Leap... and Others Don't",
     "description": "To find the keys to greatness, Collins's 21-person research team read and coded 6,000 articles, generated more than 2,000 pages of interview transcripts and created 384 megabytes of computer data in a five-year project. The findings will surprise many readers and, quite frankly, upset others.",
@@ -99,16 +63,7 @@
     "cover": "https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/books/1546097703l/76865.jpg"
   },
   {
-    "id": 12,
-    "title": "Outliers",
-    "subtitle": "The Story of Success",
-    "description": "In this stunning book, Malcolm Gladwell takes us on an intellectual journey through the world of outliers--the best and the brightest, the most famous and the most successful. He asks the question: what makes high-achievers different?",
-    "author": "Malcom Gladwell",
-    "published": "November 18th 2008",
-    "cover": "https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/books/1344266315l/3228917.jpg"
-  },
-  {
-    "id": 13,
+    "id": 8,
     "title": "Measure What Matters",
     "subtitle": "OKRs: The Simple Idea that Drives 10x Growth",
     "description": "In Measure What Matters, Doerr shares a broad range of first-person, behind-the-scenes case studies, with narrators including Bono and Bill Gates, to demonstrate the focus, agility, and explosive growth that OKRs have spurred at so many great organizations.",
@@ -117,7 +72,16 @@
     "cover": "https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/books/1521104315l/39286958._SY475_.jpg"
   },
   {
-    "id": 14,
+    "id": 9,
+    "title": "The Lean Startup",
+    "subtitle": "How Today's Entrepreneurs Use Continuous Innovation to Create Radically Successful Businesses",
+    "description": "Most startups fail. But many of those failures are preventable. The Lean Startup is a new approach being adopted across the globe, changing the way companies are built and new products are launched.",
+    "author": "Eric Ries",
+    "published": "September 13th 2011",
+    "cover": "https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/books/1629999184l/10127019._SY475_.jpg"
+  },
+  {
+    "id": 10,
     "title": "The Power of Writing It Down",
     "subtitle": "A Simple Habit to Unlock Your Brain and Reimagine Your Life",
     "description": "For anyone who's trying to make sense of their life, who wants to get unstuck from the patterns that hold them back, hear this incredible news: everything you need for the freedom you want is entirely within reach. This practice and pathway is free, it's readily available every day of your life, it takes just minutes of your time, and anyone can do it. ",
@@ -126,7 +90,7 @@
     "cover": "https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/books/1606940427l/52609381._SY475_.jpg"
   },
   {
-    "id": 15,
+    "id": 11,
     "title": "Think Again",
     "subtitle": "The Power of Knowing What You Don't Know",
     "description": "Think Again is a book about the benefit of doubt, and about how we can get better at embracing the unknown and the joy of being wrong. Evidence has shown that creative geniuses are not attached to one identity, but constantly willing to rethink their stances and that leaders who admit they don't know something and seek critical feedback lead more productive and innovative teams.",
@@ -135,13 +99,49 @@
     "cover": "https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/books/1602574232l/55539565.jpg"
   },
   {
-    "id": 16,
+    "id": 12,
     "title": "Discipline Is Destiny",
     "subtitle": "The Power of Self-Control",
     "description": "In his New York Times bestselling book Courage is Calling, author Ryan Holiday made the Stoic case for a bold and brave life. In this much-anticipated second book of his Stoic Virtue series, Holiday celebrates the awesome power of self-discipline and those who have seized it.",
     "author": "Ryan Holiday",
     "published": "September 27th 2022",
     "cover": "https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/books/1656930457l/60018575.jpg"
+  },
+  {
+    "id": 13,
+    "title": "Outliers",
+    "subtitle": "The Story of Success",
+    "description": "In this stunning book, Malcolm Gladwell takes us on an intellectual journey through the world of outliers--the best and the brightest, the most famous and the most successful. He asks the question: what makes high-achievers different?",
+    "author": "Malcom Gladwell",
+    "published": "November 18th 2008",
+    "cover": "https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/books/1344266315l/3228917.jpg"
+  },
+  {
+    "id": 14,
+    "title": "The Hard Thing About Hard Things",
+    "subtitle": "Building a Business When There Are No Easy Answers",
+    "description": "In The Hard Thing About Hard Things, Ben Horowitz, cofounder of Andreessen Horowitz and one of Silicon Valley's most respected and experienced entrepreneurs, draws on his own story of founding, running, selling, buying, managing, and investing in technology companies to offer essential advice and practical wisdom for navigating the toughest problems business schools don't cover.",
+    "author": "Ben Horowitz",
+    "published": "March 4th 2014",
+    "cover": "https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/books/1386609333l/18176747.jpg"
+  },
+  {
+    "id": 15,
+    "title": "Elon Musk",
+    "subtitle": "Tesla, SpaceX, and the Quest for a Fantastic Future",
+    "description": "Elon Musk, the entrepreneur and innovator behind SpaceX, Tesla, and SolarCity, sold one of his internet companies, PayPal, for $1.5 billion. Ashlee Vance captures the full spectacle and arc of the genius's life and work, from his tumultuous upbringing in South Africa and flight to the United States to his dramatic technical innovations and entrepreneurial pursuits.",
+    "author": "Ashlee Vance",
+    "published": "May 19th 2015",
+    "cover": "https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/books/1518291452l/25541028.jpg"
+  },
+  {
+    "id": 16,
+    "title": "Atomic Habits",
+    "subtitle": "An Easy & Proven Way to Build Good Habits & Break Bad Ones",
+    "description": "No matter your goals, Atomic Habits offers a proven framework for improving—every day. James Clear, one of the world's leading experts on habit formation, reveals practical strategies that will teach you exactly how to form good habits, break bad ones, and master the tiny behaviors that lead to remarkable results.",
+    "author": "James Clear",
+    "published": "October 16th 2018",
+    "cover": "https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/books/1655988385l/40121378.jpg"
   },
   {
     "id": 17,
@@ -160,5 +160,23 @@
     "author": "Steve Magness",
     "published": "December 23th 2022",
     "cover": "https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/books/1649650728l/59088361.jpg"
+  },
+  {
+    "id": 19,
+    "title": "What You Do Is Who You Are",
+    "subtitle": "How to Create Your Business Culture",
+    "description": "Ben Horowitz, a leading venture capitalist, modern management expert, and New York Times bestselling author, combines lessons both from history and from modern organizational practice with practical and often surprising advice to help executives build cultures that can weather both good and bad times.",
+    "author": "Ben Horowitz",
+    "published": "October 29th 2019",
+    "cover": "https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/books/1571347435l/44063692.jpg"
+  },
+  {
+    "id": 20,
+    "title": "You're Not Listening",
+    "subtitle": "What You're Missing and Why It Matters",
+    "description": "New York Times contributor Kate Murphy asked people on five continents this question, and the response was typically a long, awkward pause. People struggled to come up with someone, anyone, who truly listened to them without glazing over, glancing down at a phone, or jumping in to offer an opinion. Many admitted that they, themselves, weren’t very good listeners, and most couldn’t even describe what it meant to be a good listener.",
+    "author": "Kate Murphy",
+    "published": "January 7th 2020",
+    "cover": "https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/books/1650124222l/45892276._SY475_.jpg"
   }
 ]
