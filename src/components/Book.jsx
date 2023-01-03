@@ -2,83 +2,101 @@ import React from "react"
 import styled from "styled-components"
 
 const Container = styled.figure`
-  cursor: pointer;
   margin: 0;
+  cursor: pointer;
 `
 
-const Cover = styled.div`
+const Holder = styled.div`
+display: flex;
+align-items: center;
+justify-content: center;
+aspect-ratio: 1 / 1;
+padding: 15%;
+border-radius: 10%;
+  background: #f1f1f1;
+
+  &:hover {
+    & > * {
+      transform: translateY(-3%);
+  }
+`
+
+const Cover = styled.span`
   position: relative;
+  height: 100%;
+  max-width: 100%;
+  overflow: hidden;
   border-radius: 2px;
-  box-shadow: rgba(0, 0, 0, 0.15) 0px 1.1px 1.5px,
-    rgba(0, 0, 0, 0.1) 0px 2.8px 3.9px, rgba(0, 0, 0, 0.08) 0px 5.8px 7.9px,
-    rgba(0, 0, 0, 0.06) 0px 12.0455px 16.4px, rgba(0, 0, 0, 0.04) 0px 33px 45px;
+  box-shadow: 0px 1px 2px rgba(0, 0, 0, 0.15), 0px 6px 8px rgba(0, 0, 0, 0.1),
+    0px 12px 16px rgba(0, 0, 0, 0.05), 0px 24px 40px rgba(0, 0, 0, 0.03);
+  transition: transform 0.3s ease;
 
   &::after {
     content: "";
     position: absolute;
-    inset: 0px;
+    inset: 0;
     border-radius: 2px;
-    box-shadow: rgba(15, 15, 15, 0.1) 0px 0px 0px 1px inset;
+    box-shadow: 0px 0px 0px 0.75px rgba(15, 15, 15, 0.05) inset;
     background: linear-gradient(
       90deg,
-      rgba(0, 0, 0, 0.118) 0.65%,
-      rgba(255, 255, 255, 0.2) 1.53%,
-      rgba(255, 255, 255, 0.1) 2.38%,
-      rgba(0, 0, 0, 0.05) 3.26%,
-      rgba(255, 255, 255, 0.14) 5.68%,
-      rgba(244, 244, 244, 0) 6.96%
+      rgba(0, 0, 0, 0.1) 0.6%,
+      rgba(255, 255, 255, 0.2) 1.5%,
+      rgba(255, 255, 255, 0.1) 2.5%,
+      rgba(0, 0, 0, 0.05) 3%,
+      rgba(255, 255, 255, 0.15) 5.5%,
+      rgba(244, 244, 244, 0) 7%
     );
   }
 `
 
 const Image = styled.img`
-  border-radius: 2px;
-  aspect-ratio: 2 / 3;
   display: block;
-  height: auto;
+  height: 100%;
+  max-width: 100%;
+  aspect-ratio: 2 / 3;
+  border-radius: 2px;
   object-fit: cover;
-  width: 100%;
+  object-position: center;
+  transform: scale(1.0075);
 `
 
 const Description = styled.figcaption`
   display: flex;
   flex-direction: column;
+  text-align: center;
+  gap: 8px;
+  padding: 10%;
+  cursor: auto;
 `
 
 const Title = styled.h3`
   font-weight: 600;
-  font-size: 24px;
+  font-size: 1.25rem;
   line-height: 1.3;
-  margin: 24px 0 8px;
-`
-
-const Subtitle = styled.h4`
-  color: grey;
-  font-size: 16px;
-  line-height: 1.3;
-  margin: 0 0 12px;
-`
-
-const Author = styled.h5`
-  font-family: "Libre Baskerville", serif;
-  font-style: italic;
-  font-size: 16px;
-  font-weight: 400;
-  line-height: 1.5;
   margin: 0;
+  cursor: pointer;
+`
+
+const Author = styled.h4`
+  font-size: 1rem;
+  font-weight: 400;
+  line-height: 1;
+  margin: 0;
+  color: grey;
 `
 
 const BookComponent = ({ book }) => (
   <Container>
-    <Cover>
-      <Image
-        src={book.cover}
-        alt={`Book cover for ${book.title} by ${book.author}`}
-      />
-    </Cover>
+    <Holder>
+      <Cover>
+        <Image
+          src={book.cover}
+          alt={`Book cover for ${book.title} by ${book.author}`}
+        />
+      </Cover>
+    </Holder>
     <Description>
       <Title>{book.title}</Title>
-      {/* <Subtitle>{book.subtitle}</Subtitle> */}
       <Author>by {book.author}</Author>
     </Description>
   </Container>

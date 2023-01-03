@@ -5,12 +5,16 @@ import Header from "./components/Header"
 
 const GlobalStyle = createGlobalStyle`
   body {
-    font-family: 'Work Sans', sans-serif;
-    margin: 0;
+    font-family: 'Mulish', sans-serif;
+    font-size: 1rem;
+    font-weight: 400;
+    font-style: normal;
     padding: 0;
+    margin: 0;
+    background: #f9f9f9;
+    color: #222;
     -webkit-font-smoothing: antialiased;
     text-rendering: optimizeLegibility;
-    background: #fff;
   }
 `
 

@@ -3,22 +3,25 @@ import styled from "styled-components"
 import Book from "./Book"
 
 const Container = styled.div`
-  padding: 64px;
+  max-width: 1200px;
+  padding: 96px 64px;
+  margin: 0 auto;
+  text-align: center;
   overflow: scroll;
 
   @media (max-width: 1200px) {
-    padding: 48px;
+    padding: 80px 48px;
   }
 
   @media (max-width: 800px) {
-    padding: 32px;
+    padding: 64px 32px;
   }
 `
 
 const H2 = styled.h2`
-  font-weight: 600;
   font-size: 40px;
-  margin-bottom: 16px;
+  font-weight: 600;
+  margin: 0;
 
   @media (max-width: 800px) {
     font-size: 32px;
@@ -27,26 +30,20 @@ const H2 = styled.h2`
 
 const BookList = styled.div`
   display: grid;
-  grid-template-columns: repeat(6, 1fr);
-  grid-column-gap: 32px;
-  grid-row-gap: 64px;
-  margin-top: 48px;
-
-  @media (max-width: 1600px) {
-    grid-template-columns: repeat(5, 1fr);
-  }
-
-  @media (max-width: 1400px) {
-    grid-template-columns: repeat(4, 1fr);
-  }
+  grid-template-columns: repeat(4, 1fr);
+  grid-gap: 32px;
+  margin-top: 64px;
 
   @media (max-width: 1200px) {
     grid-template-columns: repeat(3, 1fr);
-    grid-row-gap: 48px;
   }
 
-  @media (max-width: 600px) {
+  @media (max-width: 800px) {
     grid-template-columns: repeat(2, 1fr);
+  }
+
+  @media (max-width: 440px) {
+    grid-template-columns: repeat(1, 1fr);
   }
 `
 
