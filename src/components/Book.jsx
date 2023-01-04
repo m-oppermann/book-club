@@ -82,8 +82,8 @@ const Author = styled.h4`
   color: var(--grey-3);
 `
 
-const BookComponent = ({ book }) => (
-  <Container>
+const BookComponent = ({ book, pickBook }) => (
+  <Container onClick={() => pickBook(book)}>
     <Holder>
       <Cover>
         <Image
