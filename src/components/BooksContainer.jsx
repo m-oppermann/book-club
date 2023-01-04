@@ -4,17 +4,17 @@ import Book from "./Book"
 
 const Container = styled.div`
   max-width: 1200px;
-  padding: 48px 64px 96px;
+  padding: 32px 64px 96px;
   margin: 0 auto;
   text-align: center;
   overflow: scroll;
 
   @media (max-width: 1200px) {
-    padding: 32px 48px 80px;
+    padding: 24px 48px 80px;
   }
 
   @media (max-width: 800px) {
-    padding: 24px 32px 64px;
+    padding: 16px 32px 64px;
   }
 `
 
@@ -32,11 +32,11 @@ const BookList = styled.div`
   display: grid;
   grid-template-columns: repeat(4, 1fr);
   grid-gap: 32px;
-  margin-top: 64px;
+  margin-top: 48px;
 
   @media (max-width: 1200px) {
     grid-template-columns: repeat(3, 1fr);
-    margin-top: 48px;
+    margin-top: 40px;
   }
 
   @media (max-width: 800px) {
