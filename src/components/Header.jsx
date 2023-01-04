@@ -10,6 +10,7 @@ const Header = styled.header`
   align-items: center;
   position: sticky;
   top: 0;
+  index: 1;
   padding: 1rem 2rem;
 `
 
@@ -17,7 +18,7 @@ const IconHolder = css`
   display: flex;
   justify-content: center;
   align-items: center;
-  border-radius: 0.75rem;
+  border-radius: 100%;
   padding: 1rem;
 `
 
@@ -42,7 +43,6 @@ const SearchIcon = styled(SearchSVG)`
 
 const Logo = styled.div`
   ${IconHolder}
-  border-radius: 100%;
   background-color: #222;
 `
 
@@ -53,13 +53,14 @@ const ButtonGroup = styled.div`
 
 const Button = styled.button`
   ${IconHolder}
-  background-color: #f1f1f1;
+  background-color: #f9f9f9;
   cursor: pointer;
   transition: background-color 0.3s ease;
-  border: none;
+  border: 1px solid #d9d9d9;
+  box-shadow: 0 1px 2px #e9e9e9;
 
   &:hover {
-    background-color: #e6e6e6;
+    background-color: #f1f1f1;
   }
 `
 
