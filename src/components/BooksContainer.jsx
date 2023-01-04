@@ -3,18 +3,18 @@ import styled from "styled-components"
 import Book from "./Book"
 
 const Container = styled.div`
-  max-width: 1200px;
-  padding: 32px 64px 96px;
+  max-width: 1320px;
+  padding: 24px 32px 96px;
   margin: 0 auto;
   text-align: center;
   overflow: scroll;
 
   @media (max-width: 1200px) {
-    padding: 24px 48px 80px;
+    padding: 16px 32px 80px;
   }
 
   @media (max-width: 800px) {
-    padding: 16px 32px 64px;
+    padding: 8px 32px 64px;
   }
 `
 
