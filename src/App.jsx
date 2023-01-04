@@ -4,6 +4,14 @@ import BooksContainer from "./components/BooksContainer"
 import Header from "./components/Header"
 
 const GlobalStyle = createGlobalStyle`
+  :root {
+    --light: #f9f9f9;
+    --grey-1: #f1f1f1;
+    --grey-2: #d9d9d9;
+    --grey-3: #737373;
+    --dark: #222;
+  }
+
   body {
     font-family: 'Mulish', sans-serif;
     font-size: 1rem;
@@ -12,8 +20,8 @@ const GlobalStyle = createGlobalStyle`
     line-height: 1.3;
     padding: 0;
     margin: 0;
-    background: #f9f9f9;
-    color: #222;
+    background: var(--light);
+    color: var(--dark);
     -webkit-font-smoothing: antialiased;
     text-rendering: optimizeLegibility;
   }

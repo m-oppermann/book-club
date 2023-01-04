@@ -13,7 +13,7 @@ const Holder = styled.div`
   aspect-ratio: 1 / 1;
   padding: 15%;
   border-radius: 10%;
-  background: #f1f1f1;
+  background: var(--grey-1);
 
   &:hover > * {
     transform: translateY(-3%);
@@ -79,7 +79,7 @@ const Author = styled.h4`
   font-size: 1rem;
   font-weight: 400;
   margin: 0;
-  color: #737373;
+  color: var(--grey-3);
 `
 
 const BookComponent = ({ book }) => (
