@@ -80,7 +80,7 @@ const Title = styled.h3`
 const Author = styled.h4`
   font-size: 1rem;
   font-weight: 400;
-  line-height: 1;
+  line-height: 1.2;
   margin: 0;
   color: grey;
 `
