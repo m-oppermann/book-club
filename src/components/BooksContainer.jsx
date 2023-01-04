@@ -8,14 +8,6 @@ const Container = styled.div`
   margin: 0 auto;
   text-align: center;
   overflow: scroll;
-
-  @media (max-width: 1200px) {
-    padding: 80px 32px 64px;
-  }
-
-  @media (max-width: 800px) {
-    padding: 64px 32px 48px;
-  }
 `
 
 const H2 = styled.h2`
