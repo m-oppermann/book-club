@@ -9,6 +9,7 @@ const GlobalStyle = createGlobalStyle`
     font-size: 1rem;
     font-weight: 400;
     font-style: normal;
+    line-height: 1.3;
     padding: 0;
     margin: 0;
     background: #f9f9f9;

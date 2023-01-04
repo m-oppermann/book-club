@@ -71,7 +71,6 @@ const Description = styled.figcaption`
 const Title = styled.h3`
   font-weight: 600;
   font-size: 1.25rem;
-  line-height: 1.3;
   margin: 0;
   cursor: pointer;
 `
@@ -79,7 +78,6 @@ const Title = styled.h3`
 const Author = styled.h4`
   font-size: 1rem;
   font-weight: 400;
-  line-height: 1.2;
   margin: 0;
   color: #737373;
 `
