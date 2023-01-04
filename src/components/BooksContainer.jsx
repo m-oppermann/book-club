@@ -4,7 +4,7 @@ import Book from "./Book"
 
 const Container = styled.div`
   max-width: 1320px;
-  padding: 96px 32px 80px;
+  padding: 96px 32px 64px;
   margin: 0 auto;
   text-align: center;
   overflow: scroll;
