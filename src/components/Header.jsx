@@ -8,9 +8,10 @@ const Header = styled.header`
   display: flex;
   justify-content: space-between;
   align-items: center;
-  position: sticky;
-  top: 0;
+  position: fixed;
   z-index: 1;
+  box-sizing: border-box;
+  width: 100%;
   padding: 1rem 2rem;
 `
 
