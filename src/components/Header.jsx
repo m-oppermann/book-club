@@ -48,7 +48,7 @@ const Logo = styled.div`
 
 const ButtonGroup = styled.div`
   display: flex;
-  gap: 0.75rem;
+  gap: 0.5rem;
 `
 
 const Button = styled.button`
