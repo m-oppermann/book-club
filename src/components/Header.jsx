@@ -42,7 +42,7 @@ const SearchIcon = styled(SearchSVG)`
   ${Icon}
 `
 
-const Logo = styled.div`
+const Logo = styled.a`
   ${IconHolder}
   background-color: var(--dark);
 `
@@ -67,15 +67,15 @@ const Button = styled.button`
 
 const HeaderComponent = () => (
   <Header>
-    <Logo>
-      <BookIcon light />
+    <Logo href="/">
+      <BookIcon light title="Book Club logo" />
     </Logo>
     <ButtonGroup>
       <Button>
-        <BookmarkIcon />
+        <BookmarkIcon title="Bookmark icon" />
       </Button>
       <Button>
-        <SearchIcon />
+        <SearchIcon title="Search icon" />
       </Button>
     </ButtonGroup>
   </Header>
