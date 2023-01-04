@@ -4,17 +4,17 @@ import Book from "./Book"
 
 const Container = styled.div`
   max-width: 1320px;
-  padding: 24px 32px 96px;
+  padding: 96px 32px 80px;
   margin: 0 auto;
   text-align: center;
   overflow: scroll;
 
   @media (max-width: 1200px) {
-    padding: 16px 32px 80px;
+    padding: 80px 32px 64px;
   }
 
   @media (max-width: 800px) {
-    padding: 8px 32px 64px;
+    padding: 64px 32px 48px;
   }
 `
 
