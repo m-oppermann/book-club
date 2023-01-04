@@ -10,7 +10,7 @@ const Header = styled.header`
   align-items: center;
   position: sticky;
   top: 0;
-  index: 1;
+  z-index: 1;
   padding: 1rem 2rem;
 `
 
@@ -57,7 +57,7 @@ const Button = styled.button`
   cursor: pointer;
   transition: background-color 0.3s ease;
   border: 1px solid #d9d9d9;
-  box-shadow: 0 1px 2px #e9e9e9;
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.075);
 
   &:hover {
     background-color: #f1f1f1;
