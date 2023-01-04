@@ -81,7 +81,7 @@ const Author = styled.h4`
   font-weight: 400;
   line-height: 1.2;
   margin: 0;
-  color: grey;
+  color: #737373;
 `
 
 const BookComponent = ({ book }) => (
