@@ -37,30 +37,30 @@
   },
   {
     "id": 5,
-    "title": "Range",
-    "subtitle": "Why Generalists Triumph in a Specialized World",
-    "description": "David Epstein examined the world's most successful athletes, artists, musicians, inventors, forecasters and scientists. He discovered that in most fields--especially those that are complex and unpredictable--generalists, not specialists, are primed to excel.",
-    "author": "David Epstein ",
-    "published": "May 28th 2019",
-    "cover": "https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/books/1550048292l/41795733.jpg"
+    "title": "Discipline Is Destiny",
+    "subtitle": "The Power of Self-Control",
+    "description": "In his New York Times bestselling book Courage is Calling, author Ryan Holiday made the Stoic case for a bold and brave life. In this much-anticipated second book of his Stoic Virtue series, Holiday celebrates the awesome power of self-discipline and those who have seized it.",
+    "author": "Ryan Holiday",
+    "published": "September 27th 2022",
+    "cover": "https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/books/1656930457l/60018575.jpg"
   },
   {
     "id": 6,
-    "title": "Zero to One",
-    "subtitle": "Notes on Startups, or How to Build the Future",
-    "description": "If you want to build a better future, you must believe in secrets. The great secret of our time is that there are still uncharted frontiers to explore and new inventions to create. In Zero to One, legendary entrepreneur and investor Peter Thiel shows how we can find singular ways to create those new things.",
-    "author": "Peter Thiel",
-    "published": "September 16th 2014",
-    "cover": "https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/books/1630663027l/18050143.jpg"
-  },
-  {
-    "id": 7,
     "title": "Good to Great",
     "subtitle": "Why Some Companies Make the Leap... and Others Don't",
     "description": "To find the keys to greatness, Collins's 21-person research team read and coded 6,000 articles, generated more than 2,000 pages of interview transcripts and created 384 megabytes of computer data in a five-year project. The findings will surprise many readers and, quite frankly, upset others.",
     "author": "James C. Collins",
     "published": "October 16th 2001",
     "cover": "https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/books/1546097703l/76865.jpg"
+  },
+  {
+    "id": 7,
+    "title": "Zero to One",
+    "subtitle": "Notes on Startups, or How to Build the Future",
+    "description": "If you want to build a better future, you must believe in secrets. The great secret of our time is that there are still uncharted frontiers to explore and new inventions to create. In Zero to One, legendary entrepreneur and investor Peter Thiel shows how we can find singular ways to create those new things.",
+    "author": "Peter Thiel",
+    "published": "September 16th 2014",
+    "cover": "https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/books/1630663027l/18050143.jpg"
   },
   {
     "id": 8,
@@ -100,12 +100,12 @@
   },
   {
     "id": 12,
-    "title": "Discipline Is Destiny",
-    "subtitle": "The Power of Self-Control",
-    "description": "In his New York Times bestselling book Courage is Calling, author Ryan Holiday made the Stoic case for a bold and brave life. In this much-anticipated second book of his Stoic Virtue series, Holiday celebrates the awesome power of self-discipline and those who have seized it.",
-    "author": "Ryan Holiday",
-    "published": "September 27th 2022",
-    "cover": "https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/books/1656930457l/60018575.jpg"
+    "title": "Range",
+    "subtitle": "Why Generalists Triumph in a Specialized World",
+    "description": "David Epstein examined the world's most successful athletes, artists, musicians, inventors, forecasters and scientists. He discovered that in most fields--especially those that are complex and unpredictable--generalists, not specialists, are primed to excel.",
+    "author": "David Epstein ",
+    "published": "May 28th 2019",
+    "cover": "https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/books/1550048292l/41795733.jpg"
   },
   {
     "id": 13,
@@ -145,12 +145,12 @@
   },
   {
     "id": 17,
-    "title": "Trillion Dollar Coach",
-    "subtitle": "The Leadership Playbook of Silicon Valley's Bill Campbell",
-    "description": "The team behind How Google Works returns with management lessons from legendary coach and business executive, Bill Campbell, whose mentoring of some of our most successful modern entrepreneurs has helped create well over a trillion dollars in market value.",
-    "author": "Eric Schmidt",
-    "published": "April 16th 2019",
-    "cover": "https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/books/1554279400l/42118073.jpg"
+    "title": "Blue Ocean Strategy",
+    "subtitle": "How to Create Uncontested Market Space and Make the Competition Irrelevant",
+    "description": "In a book that challenges everything you thought you knew about the requirements for strategic success, W. Chan Kim and Renee Mauborgne argue that cutthroat competition results in nothing but a bloody red ocean of rivals fighting over a shrinking profit pool.",
+    "author": "W. Chan Kim, Renée Mauborgne",
+    "published": "January 1, 1994",
+    "cover": "https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/books/1416445924l/4898.jpg"
   },
   {
     "id": 18,
