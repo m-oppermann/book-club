@@ -7,17 +7,16 @@ const Container = styled.figure`
 `
 
 const Holder = styled.div`
-display: flex;
-align-items: center;
-justify-content: center;
-aspect-ratio: 1 / 1;
-padding: 15%;
-border-radius: 10%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  aspect-ratio: 1 / 1;
+  padding: 15%;
+  border-radius: 10%;
   background: #f1f1f1;
 
-  &:hover {
-    & > * {
-      transform: translateY(-3%);
+  &:hover > * {
+    transform: translateY(-3%);
   }
 `
 
