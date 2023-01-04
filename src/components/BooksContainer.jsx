@@ -41,12 +41,12 @@ const BookList = styled.div`
   }
 `
 
-const BooksContainer = ({ books }) => (
+const BooksContainer = ({ books, pickBook }) => (
   <Container>
     <H2>All books</H2>
     <BookList>
       {books.map(book => (
-        <Book key={book.id} book={book} />
+        <Book key={book.id} book={book} pickBook={pickBook} />
       ))}
     </BookList>
   </Container>
