@@ -15,16 +15,19 @@ const GlobalStyle = createGlobalStyle`
     --dark-2: #555;
     --dark-3: #999;
 
-    --color: ${({ darkMode }) => 
-      darkMode ? "var(--dark)" : "var(--light)"};
-    --color-1: ${({ darkMode }) =>
-      darkMode ? "var(--dark-1)" : "var(--light-1)"};
-    --color-2: ${({ darkMode }) =>
-      darkMode ? "var(--dark-2)" : "var(--light-2)"};
-    --color-3: ${({ darkMode }) =>
-      darkMode ? "var(--dark-3)" : "var(--light-3)"};
-    --color-contrary: ${({ darkMode }) =>
-      darkMode ? "var(--light)" : "var(--dark)"};
+    --color: var(--light);
+    --color-1: var(--light-1);
+    --color-2: var(--light-2);
+    --color-3: var(--light-3);
+    --color-contrary: var(--dark);
+
+    @media (prefers-color-scheme: dark) {
+      --color: var(--dark);
+      --color-1: var(--dark-1);
+      --color-2: var(--dark-2);
+      --color-3: var(--dark-3);
+      --color-contrary: var(--light);
+    }
   }
 
   body {
@@ -45,7 +48,6 @@ const GlobalStyle = createGlobalStyle`
 const App = () => {
   const [books, setBooks] = useState([])
   const [selectedBook, setSelectedBook] = useState(null)
-  const [darkMode, setDarkMode] = useState(false)
 
   // Fetch Data Source
   useEffect(() => {
@@ -65,24 +67,6 @@ const App = () => {
     fetchData()
   }, [])
 
-  // Enable Dark Mode based on system preferences
-  useEffect(() => {
-    const darkModePref = window.matchMedia("(prefers-color-scheme: dark)")
-
-    setDarkMode(darkModePref.matches)
-
-    const handleChange = event => {
-      setDarkMode(event.matches)
-    }
-
-    darkModePref.addEventListener("change", handleChange)
-
-    // ???
-    return () => {
-      darkModePref.removeEventListener("change", handleChange)
-    }
-  }, [])
-
   // Helper function
   const pickBook = book => {
     setSelectedBook(book)
@@ -90,7 +74,7 @@ const App = () => {
 
   return (
     <>
-      <GlobalStyle darkMode={darkMode} />
+      <GlobalStyle />
       <Header />
       <BooksContainer books={books} pickBook={pickBook}></BooksContainer>
     </>
