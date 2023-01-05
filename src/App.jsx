@@ -6,10 +6,20 @@ import Header from "./components/Header"
 const GlobalStyle = createGlobalStyle`
   :root {
     --light: #f9f9f9;
-    --grey-1: #f1f1f1;
-    --grey-2: #d9d9d9;
-    --grey-3: #737373;
+    --light-1: #f1f1f1;
+    --light-2: #d9d9d9;
+    --light-3: #737373;
+    
     --dark: #222;
+    --dark-1: #333;
+    --dark-2: #555;
+    --dark-3: #999;
+
+    --color: ${({darkMode}) => darkMode ? "var(--dark)" : "var(--light)"};
+    --color-1: ${({darkMode}) => darkMode ? "var(--dark-1)" : "var(--light-1)"};
+    --color-2: ${({darkMode}) => darkMode ? "var(--dark-2)" : "var(--light-2)"};
+    --color-3: ${({darkMode}) => darkMode ? "var(--dark-3)" : "var(--light-3)"};
+    --color-contrary: ${({darkMode}) => darkMode ? "var(--light)" : "var(--dark)"};
   }
 
   body {
@@ -20,8 +30,8 @@ const GlobalStyle = createGlobalStyle`
     line-height: 1.3;
     padding: 0;
     margin: 0;
-    background: var(--light);
-    color: var(--dark);
+    background: var(--color);
+    color: var(--color-contrary);
     -webkit-font-smoothing: antialiased;
     text-rendering: optimizeLegibility;
   }
@@ -30,6 +40,7 @@ const GlobalStyle = createGlobalStyle`
 const App = () => {
   const [books, setBooks] = useState([])
   const [selectedBook, setSelectedBook] = useState(null)
+  const [darkMode, setDarkMode] = useState(false)
 
   useEffect(() => {
     const fetchData = async () => {
@@ -48,13 +59,31 @@ const App = () => {
     fetchData()
   }, [])
 
+  useEffect(() => {
+    const darkModePref = window.matchMedia("(prefers-color-scheme: dark)")
+
+    setDarkMode(darkModePref.matches)
+
+    const handleChange = event => {
+      setDarkMode(event.matches)
+    }
+
+    darkModePref.addEventListener("change", handleChange)
+
+    return () => {
+      darkModePref.removeEventListener("change", handleChange)
+    }
+  }, [])
+
+  /* console.log(darkMode) */
+
   const pickBook = book => {
     setSelectedBook(book)
   }
 
   return (
     <>
-      <GlobalStyle />
+      <GlobalStyle darkMode={darkMode} />
       <Header />
       <BooksContainer books={books} pickBook={pickBook}></BooksContainer>
     </>

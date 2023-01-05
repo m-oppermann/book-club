@@ -24,7 +24,7 @@ const IconHolder = css`
 `
 
 const Icon = css`
-  stroke: ${({ light }) => (light ? "var(--light)" : "var(--dark)")};
+  stroke: ${({ light }) => (light ? "var(--color)" : "var(--color-contrary)")};
   stroke-width: 2px;
   width: 1.25rem;
   height: 1.25rem;
@@ -44,7 +44,7 @@ const SearchIcon = styled(SearchSVG)`
 
 const Logo = styled.a`
   ${IconHolder}
-  background-color: var(--dark);
+  background-color: var(--color-contrary);
 `
 
 const ButtonGroup = styled.div`
@@ -54,14 +54,14 @@ const ButtonGroup = styled.div`
 
 const Button = styled.button`
   ${IconHolder}
-  background-color: var(--light);
+  background-color: var(--color);
   cursor: pointer;
   transition: background-color 0.3s ease;
-  border: 1px solid var(--grey-2);
+  border: 1px solid var(--color-2);
   box-shadow: 0 1px 2px rgba(0, 0, 0, 0.075);
 
   &:hover {
-    background-color: var(--grey-1);
+    background-color: var(--color-1);
   }
 `
 
