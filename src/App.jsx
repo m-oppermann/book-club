@@ -15,11 +15,16 @@ const GlobalStyle = createGlobalStyle`
     --dark-2: #555;
     --dark-3: #999;
 
-    --color: ${({darkMode}) => darkMode ? "var(--dark)" : "var(--light)"};
-    --color-1: ${({darkMode}) => darkMode ? "var(--dark-1)" : "var(--light-1)"};
-    --color-2: ${({darkMode}) => darkMode ? "var(--dark-2)" : "var(--light-2)"};
-    --color-3: ${({darkMode}) => darkMode ? "var(--dark-3)" : "var(--light-3)"};
-    --color-contrary: ${({darkMode}) => darkMode ? "var(--light)" : "var(--dark)"};
+    --color: ${({ darkMode }) => 
+      darkMode ? "var(--dark)" : "var(--light)"};
+    --color-1: ${({ darkMode }) =>
+      darkMode ? "var(--dark-1)" : "var(--light-1)"};
+    --color-2: ${({ darkMode }) =>
+      darkMode ? "var(--dark-2)" : "var(--light-2)"};
+    --color-3: ${({ darkMode }) =>
+      darkMode ? "var(--dark-3)" : "var(--light-3)"};
+    --color-contrary: ${({ darkMode }) =>
+      darkMode ? "var(--light)" : "var(--dark)"};
   }
 
   body {
@@ -42,6 +47,7 @@ const App = () => {
   const [selectedBook, setSelectedBook] = useState(null)
   const [darkMode, setDarkMode] = useState(false)
 
+  // Fetch Data Source
   useEffect(() => {
     const fetchData = async () => {
       const response = await fetch("/books.json")
@@ -49,7 +55,7 @@ const App = () => {
       setBooks(data)
     }
 
-    // Works too
+    // Alternative
     /* const fetchData = () => {
       fetch("/books.json")
         .then(response => response.json())
@@ -59,6 +65,7 @@ const App = () => {
     fetchData()
   }, [])
 
+  // Enable Dark Mode based on system preferences
   useEffect(() => {
     const darkModePref = window.matchMedia("(prefers-color-scheme: dark)")
 
@@ -70,13 +77,13 @@ const App = () => {
 
     darkModePref.addEventListener("change", handleChange)
 
+    // ???
     return () => {
       darkModePref.removeEventListener("change", handleChange)
     }
   }, [])
 
-  /* console.log(darkMode) */
-
+  // Helper function
   const pickBook = book => {
     setSelectedBook(book)
   }
