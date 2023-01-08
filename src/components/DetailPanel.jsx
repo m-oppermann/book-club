@@ -49,11 +49,15 @@ const ButtonLarge = styled(Button)`
   border-radius: 2rem;
   font-size: 1rem;
   width: 100%;
-  background-color: var(--color-contrary);
+  background: var(--color-contrary);
   color: var(--color);
 
   &:hover {
-    background-color: var(--color-contrary-2);
+    background: var(--color-contrary-1);
+
+      @media (prefers-color-scheme: dark) {
+        background: var(--color-contrary-2);
+      }
   }
 `
 
@@ -73,7 +77,6 @@ const About = styled.figcaption`
 
 const TitleLarge = styled(Title)`
   font-size: 1.75rem;
-  line-height: 1.2;
   cursor: auto;
   max-width: 90%;
 `
