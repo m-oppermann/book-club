@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react"
 import { createGlobalStyle } from "styled-components"
 import BooksContainer from "./components/BooksContainer"
 import Header from "./components/Header"
+import DetailPanel from "./components/DetailPanel"
 
 const GlobalStyle = createGlobalStyle`
   :root {
@@ -20,6 +21,9 @@ const GlobalStyle = createGlobalStyle`
     --color-2: var(--light-2);
     --color-3: var(--light-3);
     --color-contrary: var(--dark);
+    --color-contrary-1: var(--dark-1);
+    --color-contrary-2: var(--dark-2);
+    --color-contrary-3: var(--dark-3);
 
     @media (prefers-color-scheme: dark) {
       --color: var(--dark);
@@ -27,6 +31,9 @@ const GlobalStyle = createGlobalStyle`
       --color-2: var(--dark-2);
       --color-3: var(--dark-3);
       --color-contrary: var(--light);
+      --color-contrary-1: var(--light-1);
+      --color-contrary-2: var(--light-2);
+      --color-contrary-3: var(--light-3);
     }
   }
 
@@ -77,6 +84,7 @@ const App = () => {
       <GlobalStyle />
       <Header />
       <BooksContainer books={books} pickBook={pickBook}></BooksContainer>
+      {selectedBook && <DetailPanel book={selectedBook} />}
     </>
   )
 }
