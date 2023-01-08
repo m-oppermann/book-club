@@ -1,17 +1,18 @@
 import React from "react"
 import styled from "styled-components"
 
-const Container = styled.figure`
+const Container = styled.div`
   margin: 0;
   cursor: pointer;
 `
 
-const Holder = styled.div`
+const Holder = styled.figure`
   display: flex;
   align-items: center;
   justify-content: center;
   aspect-ratio: 1 / 1;
   padding: 15%;
+  margin: 0;
   border-radius: 10%;
   background: var(--color-1);
 
@@ -20,7 +21,7 @@ const Holder = styled.div`
   }
 `
 
-const Cover = styled.span`
+export const Cover = styled.span`
   position: relative;
   height: 100%;
   max-width: 100%;
@@ -48,7 +49,7 @@ const Cover = styled.span`
   }
 `
 
-const Image = styled.img`
+export const Image = styled.img`
   display: block;
   height: 100%;
   max-width: 100%;
@@ -68,14 +69,14 @@ const Description = styled.figcaption`
   cursor: auto;
 `
 
-const Title = styled.h3`
+export const Title = styled.h3`
   font-weight: 600;
   font-size: 1.25rem;
   margin: 0;
   cursor: pointer;
 `
 
-const Author = styled.h4`
+export const Author = styled.h4`
   font-size: 1rem;
   font-weight: 400;
   margin: 0;

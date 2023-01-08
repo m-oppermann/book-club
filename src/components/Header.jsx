@@ -23,7 +23,7 @@ const IconHolder = css`
   padding: 1rem;
 `
 
-const Icon = css`
+export const Icon = css`
   stroke: ${({ light }) => (light ? "var(--color)" : "var(--color-contrary)")};
   stroke-width: 2px;
   width: 1.25rem;
@@ -52,7 +52,7 @@ const ButtonGroup = styled.div`
   gap: 0.5rem;
 `
 
-const Button = styled.button`
+export const Button = styled.button`
   ${IconHolder}
   background-color: var(--color);
   cursor: pointer;
