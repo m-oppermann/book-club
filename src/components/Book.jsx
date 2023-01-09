@@ -85,7 +85,7 @@ export const Author = styled.h4`
 
 const BookComponent = ({ book, pickBook }) => (
   <Container onClick={() => pickBook(book)}>
-    <Holder>
+    <Holder tabIndex="0" onKeyDown={event => event.key === "Enter" && pickBook(book)}>
       <Cover>
         <Image
           src={book.cover}
