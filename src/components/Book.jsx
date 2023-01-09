@@ -60,7 +60,7 @@ export const Image = styled.img`
   transform: scale(1.0075);
 `
 
-const Description = styled.figcaption`
+const BookInfo = styled.figcaption`
   display: flex;
   flex-direction: column;
   text-align: center;
@@ -93,10 +93,10 @@ const BookComponent = ({ book, pickBook }) => (
         />
       </Cover>
     </Holder>
-    <Description>
+    <BookInfo>
       <Title>{book.title}</Title>
       <Author>by {book.author}</Author>
-    </Description>
+    </BookInfo>
   </Container>
 )
 
