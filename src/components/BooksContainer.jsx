@@ -3,11 +3,15 @@ import styled from "styled-components"
 import Book from "./Book"
 
 const Container = styled.div`
-  max-width: 1320px;
   padding: 96px 32px 64px;
   margin: 0 auto;
   text-align: center;
-  overflow: scroll;
+  width: 100%;
+  max-width: 1320px;
+  overflow: ${({$isPanelOpen}) => $isPanelOpen ? "hidden" : "scroll"};
+  position: ${({$isPanelOpen}) => $isPanelOpen ? "fixed" : ""};
+  left: ${({$isPanelOpen}) => $isPanelOpen ? "50%" : ""};
+  transform: ${({$isPanelOpen}) => $isPanelOpen ? "translateX(-50%)" : ""};
 `
 
 const H2 = styled.h2`
@@ -41,8 +45,8 @@ const BookList = styled.div`
   }
 `
 
-const BooksContainer = ({ books, pickBook }) => (
-  <Container>
+const BooksContainer = ({ books, pickBook, isPanelOpen }) => (
+  <Container $isPanelOpen={isPanelOpen}>
     <H2>All books</H2>
     <BookList>
       {books.map(book => (

@@ -23,6 +23,17 @@ const Panel = styled.article`
   box-shadow: 0 0 64px rgba(0, 0, 0, 0.1);
 `
 
+const Overlay = styled.div`
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background: rgba(255, 255, 255, 0.75);
+  z-index: 1;
+  cursor: pointer;
+`
+
 const Holder = styled.figure`
   display: flex;
   flex-direction: column;
@@ -91,7 +102,7 @@ const ScrollGradient = styled.span`
   height: 4rem;
   width: 100%;
   background: linear-gradient(to top, var(--color), transparent);
-  opacity: ${({ scrollPosition }) => scrollPosition === 1 ? 1 : 0};
+  opacity: ${({ scrollPosition }) => (scrollPosition === 1 ? 1 : 0)};
   pointer-events: none;
   transition: opacity 0.5s ease;
 `
@@ -119,7 +130,7 @@ const Published = styled.p`
   color: var(--color-3);
 `
 
-const DetailPanel = ({ book }) => {
+const DetailPanel = ({ book, closePanel }) => {
   const [scrollPosition, setScrollPosition] = useState(1)
 
   const handleScroll = event => {
@@ -131,33 +142,35 @@ const DetailPanel = ({ book }) => {
   }
 
   return (
-    <Panel>
-      <Holder>
-        <Cover>
-          <Image
-            src={book.cover}
-            alt={`Book cover for ${book.title} by ${book.author}`}
-          />
-        </Cover>
-        <ButtonLarge>
-          {<AddIcon light title="Add icon" />}
-          Add to list
-        </ButtonLarge>
-      </Holder>
-      <Wrapper>
-        <About onScroll={handleScroll} onLoad={handleScroll}>
-          <TitleLarge>{`${book.title}: ${book.subtitle}`}</TitleLarge>
-          <AuthorLarge>by {book.author}</AuthorLarge>
-          <Description>{book.description}</Description>
-          <Published>Published in {book.published}</Published>
-        </About>
-        <ScrollGradient scrollPosition={scrollPosition} />
-      </Wrapper>
-
-      <ButtonClose>
-        <CloseIcon />
-      </ButtonClose>
-    </Panel>
+    <>
+      <Panel>
+        <Holder>
+          <Cover>
+            <Image
+              src={book.cover}
+              alt={`Book cover for ${book.title} by ${book.author}`}
+            />
+          </Cover>
+          <ButtonLarge>
+            {<AddIcon light title="Add icon" />}
+            Add to list
+          </ButtonLarge>
+        </Holder>
+        <Wrapper>
+          <About onScroll={handleScroll} onLoad={handleScroll}>
+            <TitleLarge>{`${book.title}: ${book.subtitle}`}</TitleLarge>
+            <AuthorLarge>by {book.author}</AuthorLarge>
+            <Description>{book.description}</Description>
+            <Published>Published in {book.published}</Published>
+          </About>
+          <ScrollGradient scrollPosition={scrollPosition} />
+        </Wrapper>
+        <ButtonClose onClick={closePanel}>
+          <CloseIcon />
+        </ButtonClose>
+      </Panel>
+      <Overlay onClick={closePanel} />
+    </>
   )
 }
 
