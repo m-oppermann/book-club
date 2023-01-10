@@ -55,6 +55,7 @@ const GlobalStyle = createGlobalStyle`
 const App = () => {
   const [books, setBooks] = useState([])
   const [selectedBook, setSelectedBook] = useState(null)
+  const [showPanel, setShowPanel] = useState(false)
 
   // Fetch Data Source
   useEffect(() => {
@@ -77,17 +78,18 @@ const App = () => {
   // Helper function
   const pickBook = book => {
     setSelectedBook(book)
+    setShowPanel(true)
   }
 
   const closePanel = () => {
-    setSelectedBook(null)
+    setShowPanel(false)
   }
 
   return (
     <>
       <GlobalStyle />
       <Header />
-      <BooksContainer books={books} pickBook={pickBook} isPanelOpen={selectedBook !== null}></BooksContainer>
+      <BooksContainer books={books} pickBook={pickBook} isPanelOpen={showPanel}></BooksContainer>
       {selectedBook && <DetailPanel book={selectedBook} closePanel={closePanel} />}
     </>
   )
