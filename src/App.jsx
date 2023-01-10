@@ -11,16 +11,19 @@ const GlobalStyle = createGlobalStyle`
     --light-1: #f1f1f1;
     --light-2: #d9d9d9;
     --light-3: #737373;
+    --light-overlay: #fafafabf;
     
-    --dark: #222;
-    --dark-1: #333;
-    --dark-2: #555;
-    --dark-3: #999;
+    --dark: #222222;
+    --dark-1: #333333;
+    --dark-2: #555555;
+    --dark-3: #999999;
+    --dark-overlay: #222222bf;
 
     --color: var(--light);
     --color-1: var(--light-1);
     --color-2: var(--light-2);
     --color-3: var(--light-3);
+    --color-overlay: var(--light-overlay);
     --color-contrary: var(--dark);
     --color-contrary-1: var(--dark-1);
     --color-contrary-2: var(--dark-2);
@@ -31,6 +34,7 @@ const GlobalStyle = createGlobalStyle`
       --color-1: var(--dark-1);
       --color-2: var(--dark-2);
       --color-3: var(--dark-3);
+      --color-overlay: var(--dark-overlay);
       --color-contrary: var(--light);
       --color-contrary-1: var(--light-1);
       --color-contrary-2: var(--light-2);

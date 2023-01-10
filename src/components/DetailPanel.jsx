@@ -28,6 +28,11 @@ const Panel = styled(motion.article)`
   border-radius: 2.5rem;
   background: var(--color);
   box-shadow: 0 0 64px rgba(0, 0, 0, 0.1);
+
+  @media (prefers-color-scheme: dark) {
+    box-shadow: unset;
+    border: 1px solid var(--color-1)
+  }
 `
 
 const Overlay = styled(motion.div)`
@@ -36,7 +41,7 @@ const Overlay = styled(motion.div)`
   left: 0;
   width: 100vw;
   height: 100vh;
-  background: rgba(255, 255, 255, 0.75);
+  background: var(--color-overlay);
   z-index: 1;
   cursor: pointer;
 `
