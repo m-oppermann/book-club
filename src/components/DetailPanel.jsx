@@ -6,6 +6,11 @@ import { ReactComponent as AddSVG } from "../icons/add.svg"
 import { ReactComponent as XSVG } from "../icons/x.svg"
 import FocusTrap from "focus-trap-react"
 
+const Container = styled.div`
+  margin: 0;
+  cursor: auto;
+`
+
 const Panel = styled.article`
   display: flex;
   flex-direction: row;
@@ -143,8 +148,8 @@ const DetailPanel = ({ book, closePanel }) => {
   }
 
   return (
-    <>
-      <FocusTrap>
+    <FocusTrap>
+      <Container>
         <Panel>
           <Holder>
             <Cover>
@@ -171,9 +176,9 @@ const DetailPanel = ({ book, closePanel }) => {
             <CloseIcon />
           </ButtonClose>
         </Panel>
-      </FocusTrap>
-      <Overlay onClick={closePanel} />
-    </>
+        <Overlay onClick={closePanel} />
+      </Container>
+    </FocusTrap>
   )
 }
 
