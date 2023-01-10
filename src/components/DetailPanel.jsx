@@ -4,6 +4,7 @@ import { Cover, Image, Title, Author } from "./Book.jsx"
 import { Icon, Button } from "./Header.jsx"
 import { ReactComponent as AddSVG } from "../icons/add.svg"
 import { ReactComponent as XSVG } from "../icons/x.svg"
+import FocusTrap from "focus-trap-react"
 
 const Panel = styled.article`
   display: flex;
@@ -143,32 +144,34 @@ const DetailPanel = ({ book, closePanel }) => {
 
   return (
     <>
-      <Panel>
-        <Holder>
-          <Cover>
-            <Image
-              src={book.cover}
-              alt={`Book cover for ${book.title} by ${book.author}`}
-            />
-          </Cover>
-          <ButtonLarge>
-            {<AddIcon light title="Add icon" />}
-            Add to list
-          </ButtonLarge>
-        </Holder>
-        <Wrapper>
-          <About onScroll={handleScroll} onLoad={handleScroll}>
-            <TitleLarge>{`${book.title}: ${book.subtitle}`}</TitleLarge>
-            <AuthorLarge>by {book.author}</AuthorLarge>
-            <Description>{book.description}</Description>
-            <Published>Published in {book.published}</Published>
-          </About>
-          <ScrollGradient scrollPosition={scrollPosition} />
-        </Wrapper>
-        <ButtonClose onClick={closePanel}>
-          <CloseIcon />
-        </ButtonClose>
-      </Panel>
+      <FocusTrap>
+        <Panel>
+          <Holder>
+            <Cover>
+              <Image
+                src={book.cover}
+                alt={`Book cover for ${book.title} by ${book.author}`}
+              />
+            </Cover>
+            <ButtonLarge>
+              {<AddIcon light title="Add icon" />}
+              Add to list
+            </ButtonLarge>
+          </Holder>
+          <Wrapper>
+            <About onScroll={handleScroll} onLoad={handleScroll}>
+              <TitleLarge>{`${book.title}: ${book.subtitle}`}</TitleLarge>
+              <AuthorLarge>by {book.author}</AuthorLarge>
+              <Description>{book.description}</Description>
+              <Published>Published in {book.published}</Published>
+            </About>
+            <ScrollGradient scrollPosition={scrollPosition} />
+          </Wrapper>
+          <ButtonClose onClick={closePanel}>
+            <CloseIcon />
+          </ButtonClose>
+        </Panel>
+      </FocusTrap>
       <Overlay onClick={closePanel} />
     </>
   )
