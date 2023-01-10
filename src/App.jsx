@@ -3,6 +3,7 @@ import { createGlobalStyle } from "styled-components"
 import BooksContainer from "./components/BooksContainer"
 import Header from "./components/Header"
 import DetailPanel from "./components/DetailPanel"
+import { AnimatePresence } from "framer-motion"
 
 const GlobalStyle = createGlobalStyle`
   :root {
@@ -89,8 +90,16 @@ const App = () => {
     <>
       <GlobalStyle />
       <Header />
-      <BooksContainer books={books} pickBook={pickBook} isPanelOpen={showPanel}></BooksContainer>
-      {selectedBook && <DetailPanel book={selectedBook} closePanel={closePanel} />}
+      <BooksContainer
+        books={books}
+        pickBook={pickBook}
+        isPanelOpen={showPanel}
+      />
+      <AnimatePresence>
+        {showPanel && (
+          <DetailPanel book={selectedBook} closePanel={closePanel} />
+        )}
+      </AnimatePresence>
     </>
   )
 }

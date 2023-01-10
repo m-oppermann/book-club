@@ -5,13 +5,14 @@ import { Icon, Button } from "./Header.jsx"
 import { ReactComponent as AddSVG } from "../icons/add.svg"
 import { ReactComponent as XSVG } from "../icons/x.svg"
 import FocusTrap from "focus-trap-react"
+import { motion } from "framer-motion"
 
 const Container = styled.div`
   margin: 0;
   cursor: auto;
 `
 
-const Panel = styled.article`
+const Panel = styled(motion.article)`
   display: flex;
   flex-direction: row;
   align-items: flex-start;
@@ -29,7 +30,7 @@ const Panel = styled.article`
   box-shadow: 0 0 64px rgba(0, 0, 0, 0.1);
 `
 
-const Overlay = styled.div`
+const Overlay = styled(motion.div)`
   position: fixed;
   top: 0;
   left: 0;
@@ -150,7 +151,13 @@ const DetailPanel = ({ book, closePanel }) => {
   return (
     <FocusTrap>
       <Container>
-        <Panel>
+        <Panel
+          key="panel"
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          exit={{ opacity: 0 }}
+          transition={{ duration: 0.2 }}
+        >
           <Holder>
             <Cover>
               <Image
@@ -164,7 +171,10 @@ const DetailPanel = ({ book, closePanel }) => {
             </ButtonLarge>
           </Holder>
           <Wrapper>
-            <About onScroll={handleScroll} onLoad={handleScroll}>
+            <About
+              onScroll={handleScroll}
+              onLoad={handleScroll} /* tabIndex="0" */
+            >
               <TitleLarge>{`${book.title}: ${book.subtitle}`}</TitleLarge>
               <AuthorLarge>by {book.author}</AuthorLarge>
               <Description>{book.description}</Description>
@@ -176,7 +186,14 @@ const DetailPanel = ({ book, closePanel }) => {
             <CloseIcon />
           </ButtonClose>
         </Panel>
-        <Overlay onClick={closePanel} />
+        <Overlay
+          onClick={closePanel}
+          key="overlay"
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          exit={{ opacity: 0 }}
+          transition={{ duration: 0.1 }}
+        />
       </Container>
     </FocusTrap>
   )
