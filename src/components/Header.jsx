@@ -57,11 +57,15 @@ export const Button = styled.button`
   background-color: var(--color);
   cursor: pointer;
   transition: background-color 0.3s ease;
-  border: 1px solid var(--color-1);
+  border: 1px solid var(--color-2);
   box-shadow: 0 1px 2px rgba(0, 0, 0, 0.075);
 
   &:hover {
     background-color: var(--color-1);
+  }
+
+  @media (prefers-color-scheme: dark) {
+    border-color: var(--color-1);
   }
 `
 
