@@ -150,7 +150,7 @@ const Published = styled(motion.p)`
   color: var(--color-3);
 `
 
-const DetailPanel = ({ book, closePanel }) => {
+const DetailPanel = ({ selectedBook, closePanel }) => {
   const [scrollPosition, setScrollPosition] = useState(1)
 
   const handleScroll = event => {
@@ -166,7 +166,7 @@ const DetailPanel = ({ book, closePanel }) => {
       opacity: 1,
       transition: {
         when: "beforeChildren",
-        delayChildren: 0.5,
+        delayChildren: 0.4,
         duration: 0,
       },
     },
@@ -185,18 +185,18 @@ const DetailPanel = ({ book, closePanel }) => {
       <Container>
         <Panel
           key="panel"
-          layoutId={`holder-${book.id}`}
+          layoutId={`holder-${selectedBook.id}`}
           initial="hidden"
           animate="visible"
           exit="hidden"
           variants={list}
         >
           <Holder>
-            <BookWrapper layoutId={`book-${book.id}`}>
+            <BookWrapper layoutId={`book-${selectedBook.id}`}>
               <Cover>
                 <Image
-                  src={book.cover}
-                  alt={`Book cover for ${book.title} by ${book.author}`}
+                  src={selectedBook.cover}
+                  alt={`Book cover for ${selectedBook.title} by ${selectedBook.author}`}
                 />
               </Cover>
             </BookWrapper>
@@ -211,11 +211,17 @@ const DetailPanel = ({ book, closePanel }) => {
               onLoad={handleScroll} /* tabIndex="0" */
             >
               <TitleLarge
+                initial={{ opacity: 0 }}
+                exit={{ opacity: 0 }}
                 variants={item}
-              >{`${book.title}: ${book.subtitle}`}</TitleLarge>
-              <AuthorLarge variants={item}>by {book.author}</AuthorLarge>
-              <Description variants={item}>{book.description}</Description>
-              <Published>Published in {book.published}</Published>
+              >{`${selectedBook.title}: ${selectedBook.subtitle}`}</TitleLarge>
+              <AuthorLarge variants={item}>
+                by {selectedBook.author}
+              </AuthorLarge>
+              <Description variants={item}>
+                {selectedBook.description}
+              </Description>
+              <Published>Published in {selectedBook.published}</Published>
             </About>
             <ScrollGradient scrollPosition={scrollPosition} variants={item} />
           </Wrapper>

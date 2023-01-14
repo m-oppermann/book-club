@@ -97,11 +97,12 @@ const App = () => {
       <BooksContainer
         books={books}
         pickBook={pickBook}
+        selectedBook={selectedBook}
         isPanelOpen={showPanel}
       />
       <AnimatePresence>
         {showPanel && (
-          <DetailPanel book={selectedBook} closePanel={closePanel} />
+          <DetailPanel selectedBook={selectedBook} closePanel={closePanel} />
         )}
       </AnimatePresence>
     </>

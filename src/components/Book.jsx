@@ -1,8 +1,8 @@
 import React from "react"
 import styled from "styled-components"
-import { motion } from "framer-motion"
+import { AnimatePresence, motion } from "framer-motion"
 
-const Container = styled.div`
+const Container = styled(motion.div)`
   margin: 0;
   cursor: pointer;
 `
@@ -71,7 +71,7 @@ export const Image = styled(motion.img)`
   transform: scale(1.0075);
 `
 
-const BookInfo = styled.figcaption`
+const BookInfo = styled(motion.figcaption)`
   display: flex;
   flex-direction: column;
   text-align: center;
@@ -94,7 +94,7 @@ export const Author = styled(motion.h4)`
   color: var(--color-3);
 `
 
-const BookComponent = ({ book, pickBook }) => (
+const BookComponent = ({ book, pickBook, selectedBook, isPanelOpen }) => (
   <Container onClick={() => pickBook(book)}>
     <Holder
       tabIndex="0"
@@ -110,10 +110,20 @@ const BookComponent = ({ book, pickBook }) => (
         </Cover>
       </BookWrapper>
     </Holder>
-    <BookInfo>
-      <Title>{book.title}</Title>
-      <Author>by {book.author}</Author>
-    </BookInfo>
+    <AnimatePresence>
+      {!(isPanelOpen && selectedBook.id === book.id) && (
+        <BookInfo
+          key={`key-${book.id}`}
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          exit={{ opacity: 0 }}
+          transition={{ duration: 0.2 }}
+        >
+          <Title>{book.title}</Title>
+          <Author>by {book.author}</Author>
+        </BookInfo>
+      )}
+    </AnimatePresence>
   </Container>
 )
 

@@ -8,10 +8,10 @@ const Container = styled.div`
   text-align: center;
   width: 100%;
   max-width: 1320px;
-  overflow: ${({$isPanelOpen}) => $isPanelOpen ? "hidden" : "scroll"};
-  position: ${({$isPanelOpen}) => $isPanelOpen ? "fixed" : ""};
-  left: ${({$isPanelOpen}) => $isPanelOpen ? "50%" : ""};
-  transform: ${({$isPanelOpen}) => $isPanelOpen ? "translateX(-50%)" : ""};
+  overflow: ${({ $isPanelOpen }) => ($isPanelOpen ? "hidden" : "scroll")};
+  position: ${({ $isPanelOpen }) => ($isPanelOpen ? "fixed" : "")};
+  left: ${({ $isPanelOpen }) => ($isPanelOpen ? "50%" : "")};
+  transform: ${({ $isPanelOpen }) => ($isPanelOpen ? "translateX(-50%)" : "")};
 `
 
 const H2 = styled.h2`
@@ -45,15 +45,23 @@ const BookList = styled.div`
   }
 `
 
-const BooksContainer = ({ books, pickBook, isPanelOpen }) => (
-  <Container $isPanelOpen={isPanelOpen}>
-    <H2>All books</H2>
-    <BookList>
-      {books.map(book => (
-        <Book key={book.id} book={book} pickBook={pickBook} />
-      ))}
-    </BookList>
-  </Container>
-)
+const BooksContainer = ({ books, pickBook, selectedBook, isPanelOpen }) => {
+  return (
+    <Container $isPanelOpen={isPanelOpen}>
+      <H2>All books</H2>
+      <BookList>
+        {books.map(book => (
+          <Book
+            key={book.id}
+            book={book}
+            pickBook={pickBook}
+            selectedBook={selectedBook}
+            isPanelOpen={isPanelOpen}
+          />
+        ))}
+      </BookList>
+    </Container>
+  )
+}
 
 export default BooksContainer
