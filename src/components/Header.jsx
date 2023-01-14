@@ -3,6 +3,7 @@ import styled, { css } from "styled-components"
 import { ReactComponent as BookSVG } from "../icons/book.svg"
 import { ReactComponent as BookmarkSVG } from "../icons/bookmark.svg"
 import { ReactComponent as SearchSVG } from "../icons/search.svg"
+import { motion } from "framer-motion"
 
 const Header = styled.header`
   display: flex;
@@ -52,7 +53,7 @@ const ButtonGroup = styled.div`
   gap: 0.5rem;
 `
 
-export const Button = styled.button`
+export const Button = styled(motion.button)`
   ${IconHolder}
   background-color: var(--color);
   cursor: pointer;
