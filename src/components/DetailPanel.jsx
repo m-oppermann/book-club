@@ -1,6 +1,6 @@
 import React, { useState } from "react"
 import styled from "styled-components"
-import { Cover, Image, Title, Author } from "./Book.jsx"
+import { BookWrapper, Cover, Image, Title, Author } from "./Book.jsx"
 import { Icon, Button } from "./Header.jsx"
 import { ReactComponent as AddSVG } from "../icons/add.svg"
 import { ReactComponent as XSVG } from "../icons/x.svg"
@@ -8,6 +8,11 @@ import FocusTrap from "focus-trap-react"
 import { motion } from "framer-motion"
 
 const Container = styled.div`
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100vw;
+  height: 100vh;
   margin: 0;
   cursor: auto;
 `
@@ -18,9 +23,6 @@ const Panel = styled(motion.article)`
   align-items: flex-start;
   gap: 3rem;
   position: fixed;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
   z-index: 2;
   width: 50rem;
   height: 22.75rem;
@@ -31,7 +33,7 @@ const Panel = styled(motion.article)`
 
   @media (prefers-color-scheme: dark) {
     box-shadow: unset;
-    border: 1px solid var(--color-1)
+    border: 1px solid var(--color-1);
   }
 `
 
@@ -91,13 +93,19 @@ const ButtonClose = styled(Button)`
   right: 1rem;
 `
 
-const About = styled.figcaption`
+const About = styled(motion.figcaption)`
   display: flex;
   flex-direction: column;
   alight-items: flex-start;
   gap: 16px;
   height: 100%;
   overflow: scroll;
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+
+  &::-webkit-scrollbar {
+    display: none;
+  }
 `
 
 const Wrapper = styled.div`
@@ -129,13 +137,13 @@ const AuthorLarge = styled(Author)`
   font-size: 1.125rem;
 `
 
-const Description = styled.p`
+const Description = styled(motion.p)`
   margin: 0.75rem 0 0;
   color: var(--color-3);
   white-space: pre-wrap;
 `
 
-const Published = styled.p`
+const Published = styled(motion.p)`
   font-style: italic;
   font-size: 0.975rem;
   margin: 0.5rem 0 0;
@@ -153,24 +161,46 @@ const DetailPanel = ({ book, closePanel }) => {
     setScrollPosition((hiddenHeight - pixelScrolled) / hiddenHeight)
   }
 
+  const list = {
+    visible: {
+      opacity: 1,
+      transition: {
+        when: "beforeChildren",
+        delayChildren: 0.5,
+        duration: 0,
+      },
+    },
+    hidden: {
+      opacity: 0,
+    },
+  }
+
+  const item = {
+    visible: { opacity: 1 },
+    hidden: { opacity: 0 },
+  }
+
   return (
     <FocusTrap>
       <Container>
         <Panel
           key="panel"
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          exit={{ opacity: 0 }}
-          transition={{ duration: 0.2 }}
+          layoutId={`holder-${book.id}`}
+          initial="hidden"
+          animate="visible"
+          exit="hidden"
+          variants={list}
         >
           <Holder>
-            <Cover>
-              <Image
-                src={book.cover}
-                alt={`Book cover for ${book.title} by ${book.author}`}
-              />
-            </Cover>
-            <ButtonLarge>
+            <BookWrapper layoutId={`book-${book.id}`}>
+              <Cover>
+                <Image
+                  src={book.cover}
+                  alt={`Book cover for ${book.title} by ${book.author}`}
+                />
+              </Cover>
+            </BookWrapper>
+            <ButtonLarge variants={item}>
               {<AddIcon light title="Add icon" />}
               Add to list
             </ButtonLarge>
@@ -180,20 +210,22 @@ const DetailPanel = ({ book, closePanel }) => {
               onScroll={handleScroll}
               onLoad={handleScroll} /* tabIndex="0" */
             >
-              <TitleLarge>{`${book.title}: ${book.subtitle}`}</TitleLarge>
-              <AuthorLarge>by {book.author}</AuthorLarge>
-              <Description>{book.description}</Description>
+              <TitleLarge
+                variants={item}
+              >{`${book.title}: ${book.subtitle}`}</TitleLarge>
+              <AuthorLarge variants={item}>by {book.author}</AuthorLarge>
+              <Description variants={item}>{book.description}</Description>
               <Published>Published in {book.published}</Published>
             </About>
-            <ScrollGradient scrollPosition={scrollPosition} />
+            <ScrollGradient scrollPosition={scrollPosition} variants={item} />
           </Wrapper>
-          <ButtonClose onClick={closePanel}>
+          <ButtonClose onClick={closePanel} variants={item}>
             <CloseIcon />
           </ButtonClose>
         </Panel>
         <Overlay
-          onClick={closePanel}
           key="overlay"
+          onClick={closePanel}
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           exit={{ opacity: 0 }}

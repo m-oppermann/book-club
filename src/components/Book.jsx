@@ -1,12 +1,13 @@
 import React from "react"
 import styled from "styled-components"
+import { motion } from "framer-motion"
 
 const Container = styled.div`
   margin: 0;
   cursor: pointer;
 `
 
-const Holder = styled.figure`
+const Holder = styled(motion.figure)`
   display: flex;
   align-items: center;
   justify-content: center;
@@ -16,12 +17,22 @@ const Holder = styled.figure`
   border-radius: 10%;
   background: var(--color-1);
 
-  &:hover > * {
+  &:hover > * > * {
     transform: translateY(-3%);
   }
 `
 
-export const Cover = styled.span`
+export const BookWrapper = styled(motion.div)`
+  position: relative;
+  z-index: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+  max-width: 100%;
+`
+
+export const Cover = styled(motion.span)`
   position: relative;
   height: 100%;
   max-width: 100%;
@@ -49,7 +60,7 @@ export const Cover = styled.span`
   }
 `
 
-export const Image = styled.img`
+export const Image = styled(motion.img)`
   display: block;
   height: 100%;
   max-width: 100%;
@@ -69,14 +80,14 @@ const BookInfo = styled.figcaption`
   cursor: auto;
 `
 
-export const Title = styled.h3`
+export const Title = styled(motion.h3)`
   font-weight: 600;
   font-size: 1.25rem;
   margin: 0;
   cursor: pointer;
 `
 
-export const Author = styled.h4`
+export const Author = styled(motion.h4)`
   font-size: 1rem;
   font-weight: 400;
   margin: 0;
@@ -85,13 +96,19 @@ export const Author = styled.h4`
 
 const BookComponent = ({ book, pickBook }) => (
   <Container onClick={() => pickBook(book)}>
-    <Holder tabIndex="0" onKeyDown={event => event.key === "Enter" && pickBook(book)}>
-      <Cover>
-        <Image
-          src={book.cover}
-          alt={`Book cover for ${book.title} by ${book.author}`}
-        />
-      </Cover>
+    <Holder
+      tabIndex="0"
+      onKeyDown={event => event.key === "Enter" && pickBook(book)}
+      layoutId={`holder-${book.id}`}
+    >
+      <BookWrapper layoutId={`book-${book.id}`}>
+        <Cover>
+          <Image
+            src={book.cover}
+            alt={`Book cover for ${book.title} by ${book.author}`}
+          />
+        </Cover>
+      </BookWrapper>
     </Holder>
     <BookInfo>
       <Title>{book.title}</Title>
