@@ -1,4 +1,5 @@
-import React from "react"
+import React, { useState, useEffect, useRef } from "react"
+import { debounce } from "lodash-es"
 import styled from "styled-components"
 import Book from "./Book"
 
@@ -10,6 +11,7 @@ const Container = styled.div`
   max-width: 1320px;
   overflow: ${({ $isPanelOpen }) => ($isPanelOpen ? "hidden" : "scroll")};
   position: ${({ $isPanelOpen }) => ($isPanelOpen ? "fixed" : "")};
+  top: ${({ $isPanelOpen, $top }) => ($isPanelOpen ? `-${$top}px` : "")};
   left: ${({ $isPanelOpen }) => ($isPanelOpen ? "50%" : "")};
   transform: ${({ $isPanelOpen }) => ($isPanelOpen ? "translateX(-50%)" : "")};
 `
@@ -46,8 +48,26 @@ const BookList = styled.div`
 `
 
 const BooksContainer = ({ books, pickBook, selectedBook, isPanelOpen }) => {
+  const [scroll, setScroll] = useState(0)
+  const prevPanelState = useRef(false)
+
+  useEffect(() => {
+    const handleScroll = debounce(() => {
+      setScroll(window.scrollY)
+    }, 100)
+    !isPanelOpen && window.addEventListener("scroll", handleScroll)
+    return () => window.removeEventListener("scroll", handleScroll)
+  }, [isPanelOpen])
+
+  useEffect(() => {
+    prevPanelState.current && !isPanelOpen && window.scroll(0, scroll)
+    prevPanelState.current = isPanelOpen
+  }, [isPanelOpen, prevPanelState, scroll])
+
+  console.log(scroll)
+
   return (
-    <Container $isPanelOpen={isPanelOpen}>
+    <Container $isPanelOpen={isPanelOpen} $top={scroll}>
       <H2>All books</H2>
       <BookList>
         {books.map(book => (
