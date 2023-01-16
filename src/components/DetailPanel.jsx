@@ -207,8 +207,7 @@ const DetailPanel = ({ selectedBook, closePanel }) => {
           </Holder>
           <Wrapper>
             <About
-              onScroll={handleScroll}
-              onLoad={handleScroll} /* tabIndex="0" */
+              onScroll={handleScroll} /* tabIndex="0" */
             >
               <TitleLarge
                 initial={{ opacity: 0 }}
