@@ -1,9 +1,7 @@
 import React, { useState } from "react"
 import styled from "styled-components"
-import { BookWrapper, Cover, Image, Title, Author } from "./Book.jsx"
-import { Icon, Button } from "./Header.jsx"
-import { ReactComponent as AddSVG } from "../icons/add.svg"
-import { ReactComponent as XSVG } from "../icons/x.svg"
+import { CloseIcon, AddIcon, Button } from "../styles"
+import { BookWrapper, Cover, Image, Title, Author } from "./Book"
 import FocusTrap from "focus-trap-react"
 import { motion } from "framer-motion"
 
@@ -57,14 +55,6 @@ const Holder = styled.figure`
   gap: 1.75rem;
   margin: 0;
   width: 100%;
-`
-
-const AddIcon = styled(AddSVG)`
-  ${Icon}
-`
-
-const CloseIcon = styled(XSVG)`
-  ${Icon}
 `
 
 const ButtonLarge = styled(Button)`
@@ -206,9 +196,7 @@ const DetailPanel = ({ selectedBook, closePanel }) => {
             </ButtonLarge>
           </Holder>
           <Wrapper>
-            <About
-              onScroll={handleScroll} /* tabIndex="0" */
-            >
+            <About onScroll={handleScroll} /* tabIndex="0" */>
               <TitleLarge
                 initial={{ opacity: 0 }}
                 exit={{ opacity: 0 }}
