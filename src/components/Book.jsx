@@ -99,9 +99,9 @@ const BookComponent = ({ book, pickBook, selectedBook, isPanelOpen }) => (
     <Holder
       tabIndex="0"
       onKeyDown={event => event.key === "Enter" && pickBook(book)}
-      layoutId={`holder-${book.id}`}
+      /* layoutId={`holder-${book.id}`} */
     >
-      <BookWrapper layoutId={`book-${book.id}`}>
+      <BookWrapper /* layoutId={`book-${book.id}`} */>
         <Cover>
           <Image
             src={book.cover}

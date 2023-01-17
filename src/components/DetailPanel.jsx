@@ -166,7 +166,7 @@ const DetailPanel = ({ selectedBook, closePanel }) => {
       opacity: 1,
       transition: {
         when: "beforeChildren",
-        delayChildren: 0.4,
+        /* delayChildren: 0.4, */
         duration: 0,
       },
     },
@@ -185,14 +185,14 @@ const DetailPanel = ({ selectedBook, closePanel }) => {
       <Container>
         <Panel
           key="panel"
-          layoutId={`holder-${selectedBook.id}`}
+          /* layoutId={`holder-${selectedBook.id}`} */
           initial="hidden"
           animate="visible"
           exit="hidden"
           variants={list}
         >
           <Holder>
-            <BookWrapper layoutId={`book-${selectedBook.id}`}>
+            <BookWrapper /* layoutId={`book-${selectedBook.id}`} */>
               <Cover>
                 <Image
                   src={selectedBook.cover}
