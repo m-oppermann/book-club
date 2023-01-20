@@ -3,12 +3,14 @@ import { GlobalStyle } from "./styles"
 import BooksContainer from "./components/BooksContainer"
 import Header from "./components/Header"
 import DetailPanel from "./components/DetailPanel"
+import Search from "./components/Search"
 import { AnimatePresence } from "framer-motion"
 
 const App = () => {
   const [books, setBooks] = useState([])
   const [selectedBook, setSelectedBook] = useState(null)
   const [showPanel, setShowPanel] = useState(false)
+  const [filteredBooks, setFilteredBooks] = useState([])
 
   // Fetch Data Source
   useEffect(() => {
@@ -16,6 +18,7 @@ const App = () => {
       const response = await fetch("/books.json")
       const data = await response.json()
       setBooks(data)
+      setFilteredBooks(data)
     }
 
     // Alternative
@@ -38,15 +41,34 @@ const App = () => {
     setShowPanel(false)
   }
 
+  const filterBooks = searchTerm => {
+    const stringSearch = (bookAttribute, searchTerm) =>
+      bookAttribute.toLowerCase().includes(searchTerm.toLowerCase())
+    return !searchTerm
+      ? setFilteredBooks(books)
+      : setFilteredBooks(
+          books.filter(
+            book =>
+              stringSearch(book.title, searchTerm) ||
+              stringSearch(book.author, searchTerm)
+          )
+        )
+  }
+
+  const hasFiltered = filteredBooks.length !== books.length
+
   return (
     <>
       <GlobalStyle />
-      <Header />
+      <Header>
+        <Search filterBooks={filterBooks} />
+      </Header>
       <BooksContainer
-        books={books}
+        books={filteredBooks}
         pickBook={pickBook}
         selectedBook={selectedBook}
         isPanelOpen={showPanel}
+        hasFiltered={hasFiltered}
       />
       <AnimatePresence>
         {showPanel && (

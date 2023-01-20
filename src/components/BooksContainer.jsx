@@ -47,7 +47,13 @@ const BookList = styled.div`
   }
 `
 
-const BooksContainer = ({ books, pickBook, selectedBook, isPanelOpen }) => {
+const BooksContainer = ({
+  books,
+  pickBook,
+  selectedBook,
+  isPanelOpen,
+  hasFiltered,
+}) => {
   const [scroll, setScroll] = useState(0)
   const prevPanelState = useRef(false)
 
@@ -64,11 +70,9 @@ const BooksContainer = ({ books, pickBook, selectedBook, isPanelOpen }) => {
     prevPanelState.current = isPanelOpen
   }, [isPanelOpen, prevPanelState, scroll])
 
-  console.log(scroll)
-
   return (
     <Container $isPanelOpen={isPanelOpen} $top={scroll}>
-      <H2>All books</H2>
+      <H2>{!hasFiltered ? "All books" : "Search results..."}</H2>
       <BookList>
         {books.map(book => (
           <Book
