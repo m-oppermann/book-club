@@ -4,11 +4,11 @@ import styled from "styled-components"
 import Book from "./Book"
 
 const Container = styled.div`
-  padding: 96px 32px 64px;
+  padding: 6rem 0 5rem;
   margin: 0 auto;
   text-align: center;
   width: 100%;
-  max-width: 1320px;
+  max-width: 1352px;
   overflow: ${({ $isPanelOpen }) => ($isPanelOpen ? "hidden" : "scroll")};
   position: ${({ $isPanelOpen }) => ($isPanelOpen ? "fixed" : "")};
   top: ${({ $isPanelOpen, $top }) => ($isPanelOpen ? `-${$top}px` : "")};
@@ -17,29 +17,30 @@ const Container = styled.div`
 `
 
 const H2 = styled.h2`
-  font-size: 40px;
+  font-size: 2.5rem;
   font-weight: 600;
   margin: 0;
 
   @media (max-width: 800px) {
-    font-size: 32px;
+    font-size: 2rem;
   }
 `
 
 const BookList = styled.div`
   display: grid;
   grid-template-columns: repeat(4, 1fr);
-  grid-gap: 32px;
-  margin-top: 48px;
+  grid-gap: 2rem;
+  margin-top: 3rem;
+  padding: 0 2rem;
 
   @media (max-width: 1200px) {
     grid-template-columns: repeat(3, 1fr);
-    margin-top: 40px;
+    margin-top: 2.5rem;
   }
 
   @media (max-width: 800px) {
     grid-template-columns: repeat(2, 1fr);
-    margin-top: 32px;
+    margin-top: 2rem;
   }
 
   @media (max-width: 440px) {
