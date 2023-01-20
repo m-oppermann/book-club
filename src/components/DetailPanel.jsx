@@ -21,9 +21,10 @@ const Panel = styled(motion.article)`
   align-items: flex-start;
   gap: 3rem;
   position: fixed;
-  z-index: 2;
-  width: 50rem;
-  height: 22.75rem;
+  z-index: 3;
+  height: 100%;
+  max-width: 50rem;
+  max-height: 22.75rem;
   padding: 3rem;
   border-radius: 2.5rem;
   background: var(--color);
@@ -32,6 +33,30 @@ const Panel = styled(motion.article)`
   @media (prefers-color-scheme: dark) {
     box-shadow: unset;
     border: 1px solid var(--color-1);
+  }
+
+  @media (max-width: 960px) {
+    left: 2rem;
+    right: 2rem;
+  }
+
+  @media (max-width: 840px) {
+    max-height: 20rem;
+  }
+
+  @media (max-width: 740px) {
+    flex-direction: column;
+    overflow: scroll;
+    height: auto;
+    max-height: 100%;
+    padding: 0 3rem;
+    inset: 1rem;
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+
+    &::-webkit-scrollbar {
+      display: none;
+    }
   }
 `
 
@@ -42,7 +67,7 @@ const Overlay = styled(motion.div)`
   width: 100vw;
   height: 100vh;
   background: var(--color-overlay);
-  z-index: 1;
+  z-index: 2;
   cursor: pointer;
 `
 
@@ -53,8 +78,17 @@ const Holder = styled.figure`
   justify-content: center;
   flex: 1;
   gap: 1.75rem;
-  margin: 0;
+  margin: 0 auto;
   width: 100%;
+
+  @media (max-width: 740px) {
+    width: 50%;
+    padding-top: 3rem;
+  }
+
+  @media (max-width: 440px) {
+    width: 100%;
+  }
 `
 
 const ButtonLarge = styled(Button)`
@@ -81,20 +115,12 @@ const ButtonClose = styled(Button)`
   position: absolute;
   top: 1rem;
   right: 1rem;
-`
 
-const About = styled(motion.figcaption)`
-  display: flex;
-  flex-direction: column;
-  alight-items: flex-start;
-  gap: 16px;
-  height: 100%;
-  overflow: scroll;
-  -ms-overflow-style: none;
-  scrollbar-width: none;
-
-  &::-webkit-scrollbar {
-    display: none;
+  @media (max-width: 740px) {
+    position: fixed;
+    top: 2rem;
+    right: 2rem;
+    z-index: 1;
   }
 `
 
@@ -103,6 +129,11 @@ const Wrapper = styled.div`
   flex: 3;
   position: relative;
   height: 100%;
+
+  @media (max-width: 740px) {
+    height: auto;
+    padding-bottom: 3rem;
+  }
 `
 
 const ScrollGradient = styled.span`
@@ -115,12 +146,35 @@ const ScrollGradient = styled.span`
   opacity: ${({ scrollPosition }) => (scrollPosition === 1 ? 1 : 0)};
   pointer-events: none;
   transition: opacity 0.5s ease;
+
+  @media (max-width: 740px) {
+    display: none;
+  }
+`
+
+const About = styled(motion.figcaption)`
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 16px;
+  height: 100%;
+  overflow: scroll;
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+
+  &::-webkit-scrollbar {
+    display: none;
+  }
 `
 
 const TitleLarge = styled(Title)`
   font-size: 1.75rem;
   cursor: auto;
   max-width: 80%;
+
+  @media (max-width: 740px) {
+    max-width: 100%;
+  }
 `
 
 const AuthorLarge = styled(Author)`
