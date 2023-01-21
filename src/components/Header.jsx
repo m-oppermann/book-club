@@ -1,6 +1,6 @@
 import React from "react"
 import styled from "styled-components"
-import { BookIcon, BookmarkIcon, Logo, ButtonGroup, Button } from "../styles"
+import { BookIcon, Logo, ButtonGroup } from "../styles"
 
 const Header = styled.header`
   display: flex;
@@ -18,12 +18,7 @@ const HeaderComponent = ({ children }) => (
     <Logo href="/">
       <BookIcon light title="Book Club logo" />
     </Logo>
-    <ButtonGroup>
-      <Button>
-        <BookmarkIcon title="Bookmark icon" />
-      </Button>
-      {children}
-    </ButtonGroup>
+    <ButtonGroup>{children}</ButtonGroup>
   </Header>
 )
 

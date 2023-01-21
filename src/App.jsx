@@ -4,21 +4,26 @@ import BooksContainer from "./components/BooksContainer"
 import Header from "./components/Header"
 import DetailPanel from "./components/DetailPanel"
 import Search from "./components/Search"
+import Favorites from "./components/Favorites"
 import { AnimatePresence } from "framer-motion"
 
 const App = () => {
   const [books, setBooks] = useState([])
-  const [selectedBook, setSelectedBook] = useState(null)
   const [showPanel, setShowPanel] = useState(false)
-  const [filteredBooks, setFilteredBooks] = useState([])
+  const [showFaves, setShowFaves] = useState(false)
+  const faveBookIds = JSON.parse(localStorage.getItem("faveBookIds"))
 
   // Fetch Data Source
   useEffect(() => {
     const fetchData = async () => {
       const response = await fetch("/books.json")
-      const data = await response.json()
-      setBooks(data)
-      setFilteredBooks(data)
+      const books = await response.json()
+      setBooks(
+        books.map(book => ({
+          ...book,
+          isFaved: faveBookIds.includes(book.id),
+        }))
+      )
     }
 
     // Alternative
@@ -29,11 +34,12 @@ const App = () => {
     } */
 
     fetchData()
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [])
 
   // Helper function
-  const pickBook = book => {
-    setSelectedBook(book)
+  const pickBook = bookId => {
+    setBooks(books.map(book => ({ ...book, isPicked: book.id === bookId })))
     setShowPanel(true)
   }
 
@@ -44,35 +50,80 @@ const App = () => {
   const filterBooks = searchTerm => {
     const stringSearch = (bookAttribute, searchTerm) =>
       bookAttribute.toLowerCase().includes(searchTerm.toLowerCase())
-    return !searchTerm
-      ? setFilteredBooks(books)
-      : setFilteredBooks(
-          books.filter(
-            book =>
-              stringSearch(book.title, searchTerm) ||
-              stringSearch(book.author, searchTerm)
-          )
-        )
+
+    setBooks(
+      books.map(book => {
+        const isFiltered =
+          searchTerm &&
+          (stringSearch(book.title, searchTerm) ||
+            stringSearch(book.author, searchTerm))
+            ? true
+            : false
+        return { ...book, isFiltered: isFiltered }
+      })
+    )
   }
 
-  const hasFiltered = filteredBooks.length !== books.length
+  const toggleFave = bookId => {
+    setBooks(books => {
+      const updatedBooks = books.map(book =>
+        book.id === bookId ? { ...book, isFaved: !book.isFaved } : book
+      )
+
+      localStorage.setItem(
+        "faveBookIds",
+        JSON.stringify(
+          updatedBooks.filter(({ isFaved }) => isFaved).map(({ id }) => id)
+        )
+      )
+      return updatedBooks
+    })
+  }
+
+  const toggleShowFaves = () => {
+    setShowFaves(!showFaves)
+  }
+
+  const hasFiltered = books.some(book => book.isFiltered)
+  const selectedBook = books.find(book => book.isPicked)
+
+  const displayBooks = hasFiltered
+    ? books.filter(book => book.isFiltered)
+    : showFaves
+    ? books.filter(book => book.isFaved)
+    : books
+
+  const title = hasFiltered
+    ? "Search results..."
+    : showFaves
+    ? "Favorites"
+    : "All books"
 
   return (
     <>
       <GlobalStyle />
       <Header>
+        <Favorites
+          showFaves={showFaves}
+          toggleShowFaves={toggleShowFaves}
+          faveBooksNumber={faveBookIds.length}
+        />
         <Search filterBooks={filterBooks} />
       </Header>
       <BooksContainer
-        books={filteredBooks}
+        books={displayBooks}
         pickBook={pickBook}
         selectedBook={selectedBook}
         isPanelOpen={showPanel}
-        hasFiltered={hasFiltered}
+        title={title}
       />
       <AnimatePresence>
         {showPanel && (
-          <DetailPanel selectedBook={selectedBook} closePanel={closePanel} />
+          <DetailPanel
+            selectedBook={selectedBook}
+            toggleFave={toggleFave}
+            closePanel={closePanel}
+          />
         )}
       </AnimatePresence>
     </>

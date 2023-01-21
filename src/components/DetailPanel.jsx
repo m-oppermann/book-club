@@ -175,6 +175,10 @@ const TitleLarge = styled(Title)`
   @media (max-width: 740px) {
     max-width: 100%;
   }
+
+  @media (max-width: 440px) {
+    font-size: 1.5rem;
+  }
 `
 
 const AuthorLarge = styled(Author)`
@@ -194,7 +198,7 @@ const Published = styled(motion.p)`
   color: var(--color-3);
 `
 
-const DetailPanel = ({ selectedBook, closePanel }) => {
+const DetailPanel = ({ selectedBook, closePanel, toggleFave }) => {
   const [scrollPosition, setScrollPosition] = useState(1)
 
   const handleScroll = event => {
@@ -244,9 +248,23 @@ const DetailPanel = ({ selectedBook, closePanel }) => {
                 />
               </Cover>
             </BookWrapper>
-            <ButtonLarge variants={item}>
-              {<AddIcon light title="Add icon" />}
-              Add to list
+            <ButtonLarge
+              variants={item}
+              onClick={() => {
+                toggleFave(selectedBook.id)
+              }}
+            >
+              {selectedBook.isFaved ? (
+                <>
+                  <CloseIcon light title="Remove icon" />
+                  Remove book
+                </>
+              ) : (
+                <>
+                  <AddIcon light title="Add icon" />
+                  Add to list
+                </>
+              )}
             </ButtonLarge>
           </Holder>
           <Wrapper>

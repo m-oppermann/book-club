@@ -14,7 +14,7 @@ const Holder = styled(motion.figure)`
   aspect-ratio: 1 / 1;
   padding: 15%;
   margin: 0;
-  border-radius: 10%;
+  border-radius: 3rem;
   background: var(--color-1);
 
   &:hover > * > * {
@@ -95,10 +95,10 @@ export const Author = styled(motion.h4)`
 `
 
 const BookComponent = ({ book, pickBook, selectedBook, isPanelOpen }) => (
-  <Container onClick={() => pickBook(book)}>
+  <Container onClick={() => pickBook(book.id)}>
     <Holder
       tabIndex="0"
-      onKeyDown={event => event.key === "Enter" && pickBook(book)}
+      onKeyDown={event => event.key === "Enter" && pickBook(book.id)}
       /* layoutId={`holder-${book.id}`} */
     >
       <BookWrapper /* layoutId={`book-${book.id}`} */>

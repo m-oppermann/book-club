@@ -16,7 +16,7 @@ const Container = styled.div`
   transform: ${({ $isPanelOpen }) => ($isPanelOpen ? "translateX(-50%)" : "")};
 `
 
-const H2 = styled.h2`
+const ListTitle = styled.h2`
   font-size: 2.5rem;
   font-weight: 600;
   margin: 0;
@@ -24,6 +24,25 @@ const H2 = styled.h2`
   @media (max-width: 800px) {
     font-size: 2rem;
   }
+`
+
+const Message = styled.h3`
+  font-size: 1.25rem;
+  font-weight: 600;
+  margin: 0;
+  color: var(--color-3)
+  }
+`
+
+const NoBooksMessage = styled.div`
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 50vh;
+  margin: 3rem 2rem 0;
+  border-radius: 3rem;
+  background: var(--color-1);
 `
 
 const BookList = styled.div`
@@ -53,7 +72,7 @@ const BooksContainer = ({
   pickBook,
   selectedBook,
   isPanelOpen,
-  hasFiltered,
+  title,
 }) => {
   const [scroll, setScroll] = useState(0)
   const prevPanelState = useRef(false)
@@ -73,18 +92,24 @@ const BooksContainer = ({
 
   return (
     <Container $isPanelOpen={isPanelOpen} $top={scroll}>
-      <H2>{!hasFiltered ? "All books" : "Search results..."}</H2>
-      <BookList>
-        {books.map(book => (
-          <Book
-            key={book.id}
-            book={book}
-            pickBook={pickBook}
-            selectedBook={selectedBook}
-            isPanelOpen={isPanelOpen}
-          />
-        ))}
-      </BookList>
+      <ListTitle>{title}</ListTitle>
+      {books.length > 0 ? (
+        <BookList>
+          {books.map(book => (
+            <Book
+              key={book.id}
+              book={book}
+              pickBook={pickBook}
+              selectedBook={selectedBook}
+              isPanelOpen={isPanelOpen}
+            />
+          ))}
+        </BookList>
+      ) : (
+        <NoBooksMessage>
+          <Message>No books selected...</Message>
+        </NoBooksMessage>
+      )}
     </Container>
   )
 }
