@@ -41,6 +41,7 @@ const FavoritesComponent = ({
       onClick={() => {
         toggleShowFaves()
         clearSearch()
+        window.scrollTo({ top: 0, behavior: "smooth" })
       }}
       $favesOpen={showFaves}
     >

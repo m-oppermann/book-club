@@ -4,6 +4,7 @@ import { ReactComponent as BookmarkSVG } from "./icons/bookmark.svg"
 import { ReactComponent as SearchSVG } from "./icons/search.svg"
 import { ReactComponent as AddSVG } from "./icons/add.svg"
 import { ReactComponent as XSVG } from "./icons/x.svg"
+import { motion } from "framer-motion"
 
 export const GlobalStyle = createGlobalStyle`
   :root {
@@ -54,6 +55,7 @@ export const GlobalStyle = createGlobalStyle`
     color: var(--color-contrary);
     -webkit-font-smoothing: antialiased;
     text-rendering: optimizeLegibility;
+    overflow: ${({ $isPanelOpen }) => ($isPanelOpen ? "hidden" : "scroll")};
   }
 `
 
@@ -97,7 +99,7 @@ export const Logo = styled.a`
   background-color: var(--color-contrary);
 `
 
-export const Button = styled.button`
+export const Button = styled(motion.button)`
   ${IconHolder}
   background-color: var(--color);
   border: 1px solid var(--color-2);

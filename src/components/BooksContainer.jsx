@@ -1,5 +1,5 @@
-import React, { useState, useEffect, useRef } from "react"
-import { debounce } from "lodash-es"
+import React /*, { useState, useEffect, useRef } */ from "react"
+/* import { debounce } from "lodash-es" */
 import styled from "styled-components"
 import Book from "./Book"
 
@@ -9,11 +9,13 @@ const Container = styled.div`
   text-align: center;
   width: 100%;
   max-width: 1352px;
-  overflow: ${({ $isPanelOpen }) => ($isPanelOpen ? "hidden" : "scroll")};
+
+  /* overflow: ${({ $isPanelOpen }) => ($isPanelOpen ? "hidden" : "scroll")};
   position: ${({ $isPanelOpen }) => ($isPanelOpen ? "fixed" : "")};
   top: ${({ $isPanelOpen, $top }) => ($isPanelOpen ? `-${$top}px` : "")};
   left: ${({ $isPanelOpen }) => ($isPanelOpen ? "50%" : "")};
-  transform: ${({ $isPanelOpen }) => ($isPanelOpen ? "translateX(-50%)" : "")};
+  transform: ${({ $isPanelOpen }) =>
+    $isPanelOpen ? "translateX(-50%)" : ""}; */
 `
 
 const ListTitle = styled.h2`
@@ -74,7 +76,7 @@ const BooksContainer = ({
   isPanelOpen,
   title,
 }) => {
-  const [scroll, setScroll] = useState(0)
+  /* const [scroll, setScroll] = useState(0)
   const prevPanelState = useRef(false)
 
   useEffect(() => {
@@ -88,10 +90,10 @@ const BooksContainer = ({
   useEffect(() => {
     prevPanelState.current && !isPanelOpen && window.scroll(0, scroll)
     prevPanelState.current = isPanelOpen
-  }, [isPanelOpen, prevPanelState, scroll])
+  }, [isPanelOpen, prevPanelState, scroll]) */
 
   return (
-    <Container $isPanelOpen={isPanelOpen} $top={scroll}>
+    <Container /* $isPanelOpen={isPanelOpen} $top={scroll} */>
       <ListTitle>{title}</ListTitle>
       {books.length > 0 ? (
         <BookList>

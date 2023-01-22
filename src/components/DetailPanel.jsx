@@ -1,4 +1,4 @@
-import React, { useState } from "react"
+import React, { useState, useEffect } from "react"
 import styled from "styled-components"
 import { CloseIcon, AddIcon, Button } from "../styles"
 import { BookWrapper, Cover, Image, Title, Author } from "./Book"
@@ -9,6 +9,10 @@ const Container = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 2;
   width: 100vw;
   height: 100vh;
   margin: 0;
@@ -16,10 +20,6 @@ const Container = styled.div`
 `
 
 const Panel = styled(motion.article)`
-  display: flex;
-  flex-direction: row;
-  align-items: flex-start;
-  gap: 3rem;
   position: fixed;
   z-index: 3;
   height: 100%;
@@ -45,12 +45,23 @@ const Panel = styled(motion.article)`
   }
 
   @media (max-width: 740px) {
-    flex-direction: column;
-    overflow: scroll;
     height: auto;
     max-height: 100%;
     padding: 0 3rem;
     inset: 1rem;
+  }
+`
+
+const Inner = styled(motion.div)`
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+  gap: 3rem;
+  height: 100%;
+
+  @media (max-width: 740px) {
+    flex-direction: column;
+    overflow: scroll;
     -ms-overflow-style: none;
     scrollbar-width: none;
 
@@ -62,12 +73,9 @@ const Panel = styled(motion.article)`
 
 const Overlay = styled(motion.div)`
   position: fixed;
-  top: 0;
-  left: 0;
   width: 100vw;
   height: 100vh;
   background: var(--color-overlay);
-  z-index: 2;
   cursor: pointer;
 `
 
@@ -115,13 +123,6 @@ const ButtonClose = styled(Button)`
   position: absolute;
   top: 1rem;
   right: 1rem;
-
-  @media (max-width: 740px) {
-    position: fixed;
-    top: 2rem;
-    right: 2rem;
-    z-index: 1;
-  }
 `
 
 const Wrapper = styled.div`
@@ -201,6 +202,17 @@ const Published = styled(motion.p)`
 const DetailPanel = ({ selectedBook, closePanel, toggleFave }) => {
   const [scrollPosition, setScrollPosition] = useState(1)
 
+  useEffect(() => {
+    const handler = event => {
+      if (event.key === "Escape") {
+        closePanel()
+      }
+    }
+    window.addEventListener("keyup", handler)
+    return () => window.removeEventListener("keyup", handler)
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [])
+
   const handleScroll = event => {
     const pixelScrolled = event.target.scrollTop
     const scrollHeight = event.target.scrollHeight
@@ -214,7 +226,7 @@ const DetailPanel = ({ selectedBook, closePanel, toggleFave }) => {
       opacity: 1,
       transition: {
         when: "beforeChildren",
-        /* delayChildren: 0.4, */
+        delayChildren: 0.3,
         duration: 0,
       },
     },
@@ -233,57 +245,51 @@ const DetailPanel = ({ selectedBook, closePanel, toggleFave }) => {
       <Container>
         <Panel
           key="panel"
-          /* layoutId={`holder-${selectedBook.id}`} */
+          layoutId={`holder-${selectedBook.id}`}
           initial="hidden"
           animate="visible"
           exit="hidden"
           variants={list}
         >
-          <Holder>
-            <BookWrapper /* layoutId={`book-${selectedBook.id}`} */>
-              <Cover>
-                <Image
-                  src={selectedBook.cover}
-                  alt={`Book cover for ${selectedBook.title} by ${selectedBook.author}`}
-                />
-              </Cover>
-            </BookWrapper>
-            <ButtonLarge
-              variants={item}
-              onClick={() => {
-                toggleFave(selectedBook.id)
-              }}
-            >
-              {selectedBook.isFaved ? (
-                <>
-                  <CloseIcon light title="Remove icon" />
-                  Remove book
-                </>
-              ) : (
-                <>
-                  <AddIcon light title="Add icon" />
-                  Add to list
-                </>
-              )}
-            </ButtonLarge>
-          </Holder>
-          <Wrapper>
-            <About onScroll={handleScroll} /* tabIndex="0" */>
-              <TitleLarge
-                initial={{ opacity: 0 }}
-                exit={{ opacity: 0 }}
+          <Inner>
+            <Holder>
+              <BookWrapper layoutId={`book-${selectedBook.id}`}>
+                <Cover>
+                  <Image
+                    src={selectedBook.cover}
+                    alt={`Book cover for ${selectedBook.title} by ${selectedBook.author}`}
+                  />
+                </Cover>
+              </BookWrapper>
+              <ButtonLarge
                 variants={item}
-              >{`${selectedBook.title}: ${selectedBook.subtitle}`}</TitleLarge>
-              <AuthorLarge variants={item}>
-                by {selectedBook.author}
-              </AuthorLarge>
-              <Description variants={item}>
-                {selectedBook.description}
-              </Description>
-              <Published>Published in {selectedBook.published}</Published>
-            </About>
-            <ScrollGradient scrollPosition={scrollPosition} variants={item} />
-          </Wrapper>
+                onClick={() => {
+                  toggleFave(selectedBook.id)
+                }}
+              >
+                {selectedBook.isFaved ? (
+                  <>
+                    <CloseIcon light title="Remove icon" />
+                    Remove book
+                  </>
+                ) : (
+                  <>
+                    <AddIcon light title="Add icon" />
+                    Add to list
+                  </>
+                )}
+              </ButtonLarge>
+            </Holder>
+            <Wrapper>
+              <About variants={item} onScroll={handleScroll} /* tabIndex="0" */>
+                <TitleLarge>{`${selectedBook.title}: ${selectedBook.subtitle}`}</TitleLarge>
+                <AuthorLarge>by {selectedBook.author}</AuthorLarge>
+                <Description>{selectedBook.description}</Description>
+                <Published>Published in {selectedBook.published}</Published>
+              </About>
+              <ScrollGradient scrollPosition={scrollPosition} variants={item} />
+            </Wrapper>
+          </Inner>
           <ButtonClose onClick={closePanel} variants={item}>
             <CloseIcon />
           </ButtonClose>

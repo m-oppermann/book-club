@@ -108,6 +108,8 @@ const SearchComponent = ({
     if (!showOnDesktop && event.key === "Enter") {
       showSearch()
       hideFaves()
+    } else if (showOnDesktop && event.key === "Escape") {
+      clearSearch()
     }
   }
 

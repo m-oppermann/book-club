@@ -20,6 +20,10 @@ const Holder = styled(motion.figure)`
   &:hover > * > * {
     transform: translateY(-3%);
   }
+
+  @media (max-width: 800px) {
+    border-radius: 2rem;
+  }
 `
 
 export const BookWrapper = styled(motion.div)`
@@ -29,7 +33,6 @@ export const BookWrapper = styled(motion.div)`
   align-items: center;
   justify-content: center;
   height: 100%;
-  max-width: 100%;
 `
 
 export const Cover = styled(motion.span)`
@@ -96,32 +99,34 @@ export const Author = styled(motion.h4)`
 
 const BookComponent = ({ book, pickBook, selectedBook, isPanelOpen }) => (
   <Container onClick={() => pickBook(book.id)}>
-    <Holder
-      tabIndex="0"
-      onKeyDown={event => event.key === "Enter" && pickBook(book.id)}
-      /* layoutId={`holder-${book.id}`} */
-    >
-      <BookWrapper /* layoutId={`book-${book.id}`} */>
-        <Cover>
-          <Image
-            src={book.cover}
-            alt={`Book cover for ${book.title} by ${book.author}`}
-          />
-        </Cover>
-      </BookWrapper>
-    </Holder>
     <AnimatePresence>
       {!(isPanelOpen && selectedBook.id === book.id) && (
-        <BookInfo
-          key={`key-${book.id}`}
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          exit={{ opacity: 0 }}
-          transition={{ duration: 0.2 }}
-        >
-          <Title>{book.title}</Title>
-          <Author>by {book.author}</Author>
-        </BookInfo>
+        <>
+          <Holder
+            tabIndex="0"
+            onKeyDown={event => event.key === "Enter" && pickBook(book.id)}
+            layoutId={`holder-${book.id}`}
+          >
+            <BookWrapper layoutId={`book-${book.id}`}>
+              <Cover>
+                <Image
+                  src={book.cover}
+                  alt={`Book cover for ${book.title} by ${book.author}`}
+                />
+              </Cover>
+            </BookWrapper>
+          </Holder>
+          <BookInfo
+            key={`key-${book.id}`}
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+            transition={{ duration: 0.2 }}
+          >
+            <Title>{book.title}</Title>
+            <Author>by {book.author}</Author>
+          </BookInfo>
+        </>
       )}
     </AnimatePresence>
   </Container>

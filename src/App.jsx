@@ -118,7 +118,7 @@ const App = () => {
 
   return (
     <>
-      <GlobalStyle />
+      <GlobalStyle $isPanelOpen={showPanel} />
       <Header>
         <Favorites
           showFaves={showFaves}
