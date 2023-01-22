@@ -141,6 +141,7 @@ const App = () => {
         selectedBook={selectedBook}
         isPanelOpen={showPanel}
         title={title}
+        showFaves={showFaves}
       />
       <AnimatePresence>
         {showPanel && (

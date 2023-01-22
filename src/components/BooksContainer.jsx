@@ -75,6 +75,7 @@ const BooksContainer = ({
   selectedBook,
   isPanelOpen,
   title,
+  showFaves
 }) => {
   /* const [scroll, setScroll] = useState(0)
   const prevPanelState = useRef(false)
@@ -95,7 +96,7 @@ const BooksContainer = ({
   return (
     <Container /* $isPanelOpen={isPanelOpen} $top={scroll} */>
       <ListTitle>{title}</ListTitle>
-      {books.length > 0 ? (
+      {books.length > 0 || !showFaves ? (
         <BookList>
           {books.map(book => (
             <Book
