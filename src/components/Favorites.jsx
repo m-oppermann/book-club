@@ -33,10 +33,17 @@ const FavoritesComponent = ({
   showFaves,
   toggleShowFaves,
   faveBooksNumber,
+  clearSearch,
 }) => (
   <FaveButtonContainer>
     <Counter $favesOpen={showFaves}>{faveBooksNumber}</Counter>
-    <FaveButton onClick={() => toggleShowFaves()} $favesOpen={showFaves}>
+    <FaveButton
+      onClick={() => {
+        toggleShowFaves()
+        clearSearch()
+      }}
+      $favesOpen={showFaves}
+    >
       <BookmarkIcon title="Bookmark icon" />
     </FaveButton>
   </FaveButtonContainer>

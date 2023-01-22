@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react"
+import React, { useState, useEffect, useRef } from "react"
 import { GlobalStyle } from "./styles"
 import BooksContainer from "./components/BooksContainer"
 import Header from "./components/Header"
@@ -11,6 +11,7 @@ const App = () => {
   const [books, setBooks] = useState([])
   const [showPanel, setShowPanel] = useState(false)
   const [showFaves, setShowFaves] = useState(false)
+  const [showOnDesktop, setShowOnDesktop] = useState(false)
   const faveBookIds = JSON.parse(localStorage.getItem("faveBookIds"))
 
   // Fetch Data Source
@@ -84,6 +85,10 @@ const App = () => {
     setShowFaves(!showFaves)
   }
 
+  const hideFaves = () => {
+    setShowFaves(false)
+  }
+
   const hasFiltered = books.some(book => book.isFiltered)
   const selectedBook = books.find(book => book.isPicked)
 
@@ -99,6 +104,18 @@ const App = () => {
     ? "Favorites"
     : "All books"
 
+  const inputRef = useRef(null)
+
+  const clearSearch = () => {
+    filterBooks("")
+    inputRef.current.value = ""
+    setShowOnDesktop(false)
+  }
+
+  const showSearch = () => {
+    setShowOnDesktop(true)
+  }
+
   return (
     <>
       <GlobalStyle />
@@ -107,8 +124,16 @@ const App = () => {
           showFaves={showFaves}
           toggleShowFaves={toggleShowFaves}
           faveBooksNumber={faveBookIds.length}
+          clearSearch={clearSearch}
         />
-        <Search filterBooks={filterBooks} />
+        <Search
+          filterBooks={filterBooks}
+          showSearch={showSearch}
+          clearSearch={clearSearch}
+          showOnDesktop={showOnDesktop}
+          inputRef={inputRef}
+          hideFaves={hideFaves}
+        />
       </Header>
       <BooksContainer
         books={displayBooks}

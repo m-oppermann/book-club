@@ -1,4 +1,4 @@
-import React, { useState, useRef } from "react"
+import React from "react"
 import styled from "styled-components"
 import { SearchIcon, CloseIcon } from "../styles"
 
@@ -85,33 +85,37 @@ const Button = styled.button`
   cursor: pointer;
 `
 
-const SearchComponent = ({ filterBooks }) => {
-  const [showOnDesktop, setShowOnDesktop] = useState(false)
-  const inputRef = useRef(null)
-
+const SearchComponent = ({
+  filterBooks,
+  showOnDesktop,
+  inputRef,
+  clearSearch,
+  showSearch,
+  hideFaves,
+}) => {
   const handleChange = event => {
     filterBooks(event.target.value)
   }
 
+  const handleClick = () => {
+    if (!showOnDesktop) {
+      showSearch()
+      hideFaves()
+    }
+  }
+
   const handleKeyUp = event => {
-    event.key === "Enter" && showSearch()
-  }
-
-  const clearSearch = () => {
-    filterBooks("")
-    inputRef.current.value = ""
-    setShowOnDesktop(false)
-  }
-
-  const showSearch = () => {
-    setShowOnDesktop(true)
+    if (!showOnDesktop && event.key === "Enter") {
+      showSearch()
+      hideFaves()
+    }
   }
 
   return (
     <SearchWrapper>
       <SearchContainer
         $showOnDesktop={showOnDesktop}
-        onClick={!showOnDesktop ? showSearch : null}
+        onClick={handleClick}
         onKeyUp={handleKeyUp}
         tabIndex="0"
       >
