@@ -3,6 +3,7 @@ import styled from "styled-components"
 import { AnimatePresence, motion } from "framer-motion"
 
 const Container = styled(motion.div)`
+  position: relative;
   margin: 0;
   cursor: pointer;
 `
@@ -98,7 +99,13 @@ export const Author = styled(motion.h4)`
 `
 
 const BookComponent = ({ book, pickBook, selectedBook, isPanelOpen }) => (
-  <Container onClick={() => pickBook(book.id)}>
+  <Container
+    onClick={() => pickBook(book.id)}
+    initial={{ opacity: 0 }}
+    whileInView={{ opacity: 1 }}
+    viewport={{ once: false }}
+    transition={{ duration: 0.5, ease: "easeInOut" }}
+  >
     <AnimatePresence>
       {!(isPanelOpen && selectedBook.id === book.id) && (
         <>

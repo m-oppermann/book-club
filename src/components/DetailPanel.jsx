@@ -262,7 +262,9 @@ const DetailPanel = ({ selectedBook, closePanel, toggleFave }) => {
                 </Cover>
               </BookWrapper>
               <ButtonLarge
-                variants={item}
+                variants={list}
+                whileTap={{ scale: 0.95 }}
+                transition={{ type: "spring", stiffness: 400, damping: 15 }}
                 onClick={() => {
                   toggleFave(selectedBook.id)
                 }}
